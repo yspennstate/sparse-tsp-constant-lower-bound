@@ -2,9 +2,11 @@
 
 Paper and programs. Let T_m be the length of the shortest path from the origin through m distinct points of a Poisson
 process of unit intensity in R^d. Aldous and Krikun proved that T_m/m converges in probability to a constant c(0+).
-The paper shows that the first moment method gives c(0+) >= (d/e)(v_d Gamma(d+1))^(-1/d), that no first moment count gives
-more, and that c(0+)/sqrt(d) -> (2 pi e)^(-1/2). It also proves c(0+) > 0.32417 in the plane with a transfer
-certificate checked in exact integer arithmetic.
+The branching random walk argument of Aldous and Krikun, with its integral evaluated exactly, gives
+c(0+) >= b_d = (d/e)(v_d Gamma(d+1))^(-1/d), which is 0.29352... in the plane. The paper shows that the expected number
+of paths behind this bound tends to infinity for every larger threshold, and that c(0+)/sqrt(d) -> (2 pi e)^(-1/2).
+Counting only paths that cannot be shortened by exchanging two consecutive points, it proves c(0+) > 0.32417 in the
+plane, with a transfer operator and a positive vector checked in exact integer arithmetic.
 
 - `main.tex`, `main.pdf`: the paper.
 - `code/grid.py`: writes `grid.txt`, the integer radius weights and cosine bounds (standard library only).
