@@ -14,7 +14,7 @@ certificate checked in exact integer arithmetic.
 - `code/SHA256SUMS`: hashes of grid.txt, cert.cpp, check.py, grid.py and the two vectors.
 
 The vectors `final.v` (7.1 MB) and `final.Mv` (13.9 MB), one integer per line in the state order
-(a*(n+1)+b)*A+t, are attached to the release v1.0.
+(a*(n+1)+b)*A+t, are in `code/`.
 
 ## Reproducing the certificate
 
@@ -26,9 +26,8 @@ clang++ -O2 -std=c++17 cert.cpp -o cert
 python check.py grid.txt final 819869595611
 ```
 
-`check.py` also takes about a minute. To check the released vectors without running `cert`,
-download `final.v` and `final.Mv` from the release into `code/`, verify them with `sha256sum -c SHA256SUMS`, and run
-the last command.
+`check.py` also takes about a minute. To check the saved vectors without running `cert`,
+verify them in `code/` with `sha256sum -c SHA256SUMS` and run the last command.
 
 Two controls show that the check can fail: `python check.py grid.txt final 819869595610` stops with an assertion at
 state 590292, and a copy of `final.v` with one entry increased by one (with `final.Mv` unchanged) gives 756 image
