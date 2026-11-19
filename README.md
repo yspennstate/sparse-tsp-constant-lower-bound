@@ -9,7 +9,7 @@ Counting only paths that cannot be shortened by exchanging two consecutive point
 plane, with a transfer operator and a positive vector checked in exact integer arithmetic.
 
 - `main.tex`, `main.pdf`: the paper.
-- `code/grid.py`: writes `grid.txt`, the integer radius weights and cosine bounds (standard library only).
+- `code/grid.py`: writes `grid.txt`, the integer length weights and cosine bounds (standard library only).
 - `code/cert.cpp`: finds the certificate vector v, computes Mv exactly and prints the least numerator N.
 - `code/check.py`: independent check of grid.txt, v, Mv, the inequalities and the final constant (needs numpy).
 - `code/first_moment.py`: the first moment constants of Section 2.

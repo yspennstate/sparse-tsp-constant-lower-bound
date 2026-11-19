@@ -34,8 +34,9 @@ Let $T_m$ be the length of the shortest path from the origin through $m$ distinc
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant $c(0+)>0$ and
 remarked that reasonable bounds on its value seem difficult to obtain. Their branching random walk argument, with its
 integral evaluated exactly, gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball, and
-$b_2=0.29352\dots$. The expected number of paths behind this bound tends to infinity for every larger threshold, and
-with a theorem of Rhee $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$. A shortest path cannot be shortened by
+$b_2=0.29352\dots$. For every $a>b_d$ the expected number of paths through $m$ points of length at most $am$ tends to
+infinity, so the first moment gives no more than $b_d$. With a theorem of Rhee, $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as
+$d\to\infty$. A shortest path cannot be shortened by
 exchanging two consecutive points. Counting only the paths with this property, and bounding their number by a transfer
 operator and a positive vector checked in exact arithmetic, we prove $c(0+)>0.32417$ for $d=2$.
 \end{abstract}
@@ -54,7 +55,7 @@ T_m=\min\Bigl\{|\xi_{j_1}|+\sum_{i=2}^{m}|\xi_{j_i}-\xi_{j_{i-1}}|\Bigr\},
 \]
 the minimum over ordered choices of $m$ distinct points of $\Pi$. Aldous and Krikun \cite{AK} studied the smallest
 average edge length of long paths through the points of $\Pi$. For $0<\delta\le 1$ let $L_k(\delta)$ be the length of the shortest cycle through
-$\lceil\delta k\rceil$ of $k$ independent uniform points in a cube of volume $k$. By \cite[Theorem~1]{AK}:
+$\lceil\delta k\rceil$ of $k$ independent uniform points in a cube of volume $k$. Parts (a), (b) and (e) of \cite[Theorem~1]{AK} state:
 \begin{enumerate}[label=(\alph*)]
 \item $L_k(\delta)/(\delta k)\to c(\delta)$ in $L^2$, for a constant $c(\delta)$;
 \item $c(\cdot)$ is non-decreasing and continuous on $(0,1]$, and $c(0+)=\lim_{\delta\downarrow 0}c(\delta)>0$;
@@ -63,37 +64,27 @@ $\lceil\delta k\rceil$ of $k$ independent uniform points in a cube of volume $k$
 We call $c(0+)$ the sparse travelling salesman constant: by (a) and (b) it is the limit, as $\delta\downarrow 0$, of
 the constants for shortest cycles through a proportion $\delta$ of the points.
 
-The constant $c(1)$ is the Beardwood--Halton--Hammersley constant $\beta_d$ of the travelling salesman problem
-\cite{BHH}, so (b) gives $c(0+)\le\beta_d$. In the plane, $\beta_2\le 0.90367$ by a computer-aided argument of
-Gaudio and Guan \cite{GG}. Aldous gave a construction showing $c(0+)\le 0.607$ for $d=2$, rigorous up to the sampling
-error of a Monte Carlo estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value of $c(0+)$ in
-$d=2$ by Monte Carlo methods, and \cite[Section~2.1]{AK} remarks that reasonable bounds on it seem difficult to obtain.
-Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM} study a generalized travelling salesman problem, in which a tour
-must visit one point from each of several classes of uniform random points, and compare it with the problem of
-\cite{AK}. The constant $c(0+)$ also appears in the continuous greedy paths model of Gou\'er\'e and Marchand \cite{GM};
-Verges \cite{Verges} studies concentration and large deviations for that model. With every point of
-$\Pi$ given mass one, let $W(\ell)$ be the largest number of points of $\Pi$ on a path of length at most $\ell$ starting
-at the origin. Then $W(\ell)\ge m$ exactly when $T_m\le\ell$, so the limit of $W(\ell)/\ell$ is $1/c(0+)$, and upper
-bounds for that limit are lower bounds for $c(0+)$.
-
 The known lower bounds for $c(0+)$ come from a first moment. For $a>0$ let $Z_m(a)$ be the number of ordered
 $m$-tuples of distinct points $x_1,\dots,x_m$ of $\Pi$ with $\sum_{i=1}^m|x_i-x_{i-1}|\le am$, where $x_0=0$, so that
 $\Prob(T_m\le am)\le\E Z_m(a)$. Aldous and Krikun \cite[Section~3.3]{AK} compare $T_m$ with a branching random walk,
-and their argument bounds $\E Z_m(a)$ by
+and their argument bounds $\E Z_m(a)$ by $\bigl(e^{\lambda a}\int_{\R^d}e^{-\lambda|u|}\,du\bigr)^m$ for every
+$\lambda>0$. The integral equals $v_d\,d!\,\lambda^{-d}$, and $\lambda=d/a$ gives
 \[
-\Bigl(e^{\lambda a}\int_{\R^d}e^{-\lambda|u|}\,du\Bigr)^m,\qquad \lambda>0 .
+c(0+)\ge b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots .
 \]
-The integral equals $v_d\,d!\,\lambda^{-d}$, and the choice $\lambda=d/a$ gives $c(0+)\ge b_d$, where
+The first moment gives no more: $\E Z_m(a)=(v_d\,d!)^m(am)^{dm}/(dm)!$, which tends to infinity for every $a>b_d$
+(\Cref{thm:first}). In the plane we pass $b_2$ by counting fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of
+length $T_m$, with steps $u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$ does not shorten it (this is the 2-opt move
+of Croes \cite{Croes} on two consecutive points), so
 \[
-b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots .
+|u_i|+|u_{i+2}|\le|u_i+u_{i+1}|+|u_{i+1}+u_{i+2}|,\qquad 1\le i\le m-2
 \]
-In \cite{AK} the integral is printed as $v_d\,\Gamma(d+1)\lambda^{-(d-1)}$, which leads to the value
-$(2\pi e)^{-1}\approx 0.0585$ in the plane, and a later note of Aldous \cite{Anote} replaces that value by
-$e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. By \Cref{cor:asym} this
-expression exceeds $\beta_d\ge c(0+)$ for all large $d$, so it is not a lower bound for $c(0+)$ in high dimension.
-Whether $c(0+)\ge e/(2\pi)$ holds in the plane is not decided by the bounds below. The proof of \cite[Lemma~2.1]{GM}
-contains the same count with $\lambda=1/a$, which gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$, equal to
-$(2\pi e)^{-1/2}\approx 0.2420$ in the plane. The count $Z_m(a)$ gives nothing beyond $b_d$:
+(\Cref{lem:swap}). Let $q_m$ be the probability that $m$ independent vectors with density $e^{-|u|}/(2\pi)$ on $\R^2$
+satisfy these $m-2$ inequalities. Then
+\[
+\Prob(T_m\le am)\le\bigl(e^{\lambda a}\,2\pi\lambda^{-2}\bigr)^m q_m\qquad\text{for every }\lambda>0,
+\]
+and a bound $q_m\le C\rho^m$ with $\rho<1$ gives $c(0+)\ge b_2\,\rho^{-1/2}>b_2$ (\Cref{prop:block}).
 
 \begin{theorem}\label{thm:first}
 For every $d\ge 2$, $a>0$ and $m\ge 1$,
@@ -102,6 +93,18 @@ For every $d\ge 2$, $a>0$ and $m\ge 1$,
 \]
 Consequently, as $m\to\infty$, $\E Z_m(a)\to 0$ if $a<b_d$ and $\E Z_m(a)\to\infty$ if $a>b_d$; and $c(0+)\ge b_d$.
 \end{theorem}
+
+\begin{theorem}\label{thm:main}
+For $d=2$, $c(0+)\ge b_2\,(10^{12}/N)^{1/2}=0.324170\dots$ with $N=819{,}869{,}595{,}611$, so $c(0+)>0.32417$.
+\end{theorem}
+
+In \cite{AK} the integral is printed as $v_d\,\Gamma(d+1)\lambda^{-(d-1)}$, which leads to the value
+$(2\pi e)^{-1}\approx 0.0585$ in the plane, and a later note of Aldous \cite{Anote} replaces that value by
+$e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. By \Cref{cor:asym} this
+expression exceeds $\beta_d\ge c(0+)$ for all large $d$, so it is not a lower bound for $c(0+)$ in high dimension.
+Whether $c(0+)\ge e/(2\pi)$ holds in the plane is not decided by the bounds below. The proof of \cite[Lemma~2.1]{GM}
+contains the same bound with $\lambda=1/a$, which gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$, equal to
+$(2\pi e)^{-1/2}\approx 0.2420$ in the plane.
 
 For large $d$ the lower bound $b_d$ has the same first order asymptotics as the upper bound $\beta_d$.
 
@@ -113,33 +116,33 @@ there is $d_0$ such that $e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}>\beta_d\ge c(0+)$ 
 The upper half of the limit is Rhee's theorem $\beta_d/\sqrt d\to(2\pi e)^{-1/2}$ \cite{Rhee}; the lower half is
 $c(0+)\ge b_d$.
 
-In the plane we pass $b_2$ by counting fewer paths. If $(0=x_0,x_1,\dots,x_m)$ is a path of length $T_m$ and
-$u_i=x_i-x_{i-1}$, then exchanging $x_i$ and $x_{i+1}$ does not shorten it (this is the 2-opt move of Croes
-\cite{Croes} on a segment of two points), so
-\[
-|u_i|+|u_{i+2}|\le|u_i+u_{i+1}|+|u_{i+1}+u_{i+2}|,\qquad 1\le i\le m-2
-\]
-(\Cref{lem:swap}). Let $q_m$ be the probability that $m$ independent vectors with density $e^{-|u|}/(2\pi)$ on $\R^2$
-satisfy these $m-2$ inequalities. Then for every $\lambda>0$
-\[
-\Prob(T_m\le am)\le\bigl(e^{\lambda a}\,2\pi\lambda^{-2}\bigr)^m q_m ,
-\]
-and $\limsup_m q_m^{1/m}\le\rho$ implies $c(0+)\ge b_2\,\rho^{-1/2}$ (\Cref{prop:block}). The inequalities for
+The constant $c(1)$ is the Beardwood--Halton--Hammersley constant $\beta_d$ of the travelling salesman problem
+\cite{BHH}, so (b) gives $c(0+)\le\beta_d$. In the plane, $\beta_2\le 0.90367$ by a computer-aided argument of
+Gaudio and Guan \cite{GG}. Aldous gave a construction showing $c(0+)\le 0.607$ for $d=2$, rigorous up to the sampling
+error of a Monte Carlo estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value of $c(0+)$ in
+$d=2$ by Monte Carlo methods, and \cite[Section~2.1]{AK} remarks that reasonable bounds on it seem difficult to obtain.
+Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM} study a generalized travelling salesman problem, in which a tour
+must visit one point from each of several classes of uniform random points, and compare it with the problem of
+\cite{AK}. In the continuous greedy paths model of Gou\'er\'e and Marchand \cite{GM} with all weights equal to one, the weight
+of a path is its number of points. Let $W(\ell)$ be the largest number of points of $\Pi$ on a path of length at most
+$\ell$ starting at the origin. Then $W(\ell)\ge m$ exactly when $T_m\le\ell$, so by (e) $W(\ell)/\ell\to 1/c(0+)$ in
+probability as $\ell\to\infty$, and an upper bound $\gamma$ for this limit gives $c(0+)\ge 1/\gamma$. Verges
+\cite{Verges} studies concentration and large deviations for that model.
+
+The inequalities for
 disjoint triples of steps are independent and each fails with probability at least $1/27$, which gives
 $c(0+)\ge b_2(27/26)^{1/6}>0.2953$ (\Cref{prop:hand}). For all triples, the lengths of the steps and the angles
-between consecutive steps are independent (\Cref{lem:angles}). Grouping the lengths into $97$ classes and the angles
-into $64$ classes gives a non-negative matrix $P$ on $602{,}176$ states, indexed by two consecutive length classes and
-one angle class, such that $q_m$ is at most a constant times the sum of the entries of $P^{m-2}$ applied to a fixed
+between consecutive steps are independent (\Cref{lem:angles}). Grouping the lengths into $97$ categories and the angles
+into $64$ bins gives a non-negative matrix $P$, the transfer operator divided by a constant, on $602{,}176$ states,
+indexed by two consecutive length categories and one angle bin, such that $q_m$ is at most a constant times the sum of the entries of $P^{m-2}$ applied to a fixed
 positive vector (\Cref{prop:transfer}). A positive vector $v$ with $Pv\le\rho v$ coordinatewise then gives
 $q_m\le C\rho^{m-2}$ for a constant $C$, and a computation in exact integer arithmetic produces such a
-vector with $\rho=N/10^{12}$, $N=819{,}869{,}595{,}611$.
+vector with $\rho=N/10^{12}$ and the integer $N$ of \Cref{thm:main}.
 
-\begin{theorem}\label{thm:main}
-For $d=2$, $c(0+)\ge b_2\,(10^{12}/N)^{1/2}=0.324170\dots$, so $c(0+)>0.32417$.
-\end{theorem}
-
-\Cref{sec:transfer} proves that the inequalities checked by the programs imply the theorem, and
-\Cref{sec:computation} describes the computation and its independent verification.
+\Cref{sec:first} proves \Cref{thm:first} and \Cref{cor:asym}. \Cref{sec:exchange} proves the exchange inequality and
+the bound of $\Prob(T_m\le am)$ by $q_m$, and obtains $c(0+)>0.2953$ from disjoint triples. \Cref{sec:transfer} bounds
+$q_m$ by the powers of $P$, using all triples. \Cref{sec:computation} gives the grid, the vector $v$ and the integer
+inequalities that prove \Cref{thm:main}.
 
 \section{The first moment}\label{sec:first}
 
@@ -148,8 +151,8 @@ By the multivariate Mecke equation \cite[Theorem~4.4]{LP},
 \[
 \E Z_m(a)=\int_{(\R^d)^m}\mathbf 1\Bigl\{\sum_{i=1}^m|x_i-x_{i-1}|\le am\Bigr\}\,dx_1\cdots dx_m .
 \]
-The change of variables $u_i=x_i-x_{i-1}$ has Jacobian one, and in polar coordinates $du_i=d v_d r_i^{d-1}dr_i\,
-d\sigma_i$ with $\sigma_i$ the normalized surface measure. Hence
+The change of variables $u_i=x_i-x_{i-1}$ has Jacobian one, and in polar coordinates $du_i=d\,v_d\,r_i^{d-1}\,dr_i\,
+d\sigma_i$ with $r_i=|u_i|$ and $\sigma_i$ the normalized surface measure. Hence
 \[
 \E Z_m(a)=(dv_d)^m\int_{r_i\ge 0,\ \sum r_i\le am}\ \prod_{i=1}^m r_i^{d-1}\,dr
 =(dv_d)^m\frac{\Gamma(d)^m (am)^{dm}}{\Gamma(dm+1)}=\frac{(v_d\,d!)^m (am)^{dm}}{(dm)!},
@@ -198,7 +201,7 @@ $|u_i+u_{i+1}|+|u_{i+1}|+|u_{i+1}+u_{i+2}|$.
 \end{proof}
 
 Call a triple of vectors $(u_1,u_2,u_3)$ \emph{bad} if $|u_1+u_2|+|u_2+u_3|<|u_1|+|u_3|$. Let $\mu_\lambda$ be the probability measure
-on $\R^2$ with density $e^{-\lambda|u|}\lambda^2/(2\pi)$: its radius has the Gamma$(2,\lambda)$ law, its direction
+on $\R^2$ with density $e^{-\lambda|u|}\lambda^2/(2\pi)$: its length has the Gamma$(2,\lambda)$ law, its direction
 is uniform, and the two are independent. Since badness is invariant under scaling, the probability that a triple of
 independent $\mu_\lambda$ vectors is bad does not depend on $\lambda$.
 
@@ -214,7 +217,7 @@ and if $\limsup_m q_m^{1/m}\le\rho$, then $c(0+)\ge b_2\,\rho^{-1/2}$.
 \begin{proof}
 On $\{T_m\le am\}$ there is a shortest path of length at most $am$, and by \Cref{lem:swap} none of its step triples is
 bad. Let $Z^*_m(a)$ count the ordered $m$-tuples of distinct points of $\Pi$ whose path from the origin has length at
-most $am$ and no bad triple of consecutive steps. By the Mecke formula and the change to increments, and since
+most $am$ and no bad triple of consecutive steps. By the multivariate Mecke equation and the change of variables $u_i=x_i-x_{i-1}$, and since
 $\mathbf 1\{\sum|u_i|\le am\}\le e^{\lambda(am-\sum|u_i|)}$,
 \[
 \Prob(T_m\le am)\le\E Z^*_m(a)\le e^{\lambda am}\int\prod_{i=1}^m e^{-\lambda|u_i|}\,
@@ -224,8 +227,8 @@ where the last step uses the scale invariance of badness. With $\lambda=2/a$ the
 $a<b_2\rho^{-1/2}$, then $(\pi e^2a^2/2)\rho<1$, the right side tends to $0$, and (e) gives $c(0+)\ge a$.
 \end{proof}
 
-Badness of disjoint triples involves disjoint sets of the $U_i$, so $q_m\le(1-\delta)^{\lfloor m/3\rfloor}$ whenever
-$\delta$ is a lower bound for the probability that one triple is bad, and then $c(0+)\ge b_2(1-\delta)^{-1/6}$.
+Badness of disjoint triples involves disjoint sets of the $U_i$, so $q_m\le(1-p)^{\lfloor m/3\rfloor}$ whenever
+$p$ is a lower bound for the probability that one triple is bad, and then $c(0+)\ge b_2(1-p)^{-1/6}$.
 
 \begin{proposition}\label{prop:hand}
 $c(0+)\ge b_2\,(27/26)^{1/6}>0.2953$.
@@ -233,13 +236,13 @@ $c(0+)\ge b_2\,(27/26)^{1/6}>0.2953$.
 
 \begin{proof}
 Let $u_1,u_2,u_3$ be independent with law $\mu_1$. Let $F$ be the event that $|u_2|<\min(|u_1|,|u_3|)$ and that $u_1$ and $u_3$
-both make an angle less than $\pi/3$ with $-u_2$. The radii and the directions are independent, the first condition
+both make an angle less than $\pi/3$ with $-u_2$. The lengths and the directions are independent, the first condition
 has probability $1/3$, and given the direction of $u_2$ the two angular conditions are independent with probability
 $1/3$ each, so $\Prob(F)=1/27$. On $F$, $u_1\cdot u_2<-|u_1||u_2|/2$, so
 \[
 |u_1+u_2|^2<|u_1|^2+|u_2|^2-|u_1||u_2|<|u_1|^2,
 \]
-and likewise $|u_2+u_3|<|u_3|$; the triple is bad. Take $\delta=1/27$.
+and likewise $|u_2+u_3|<|u_3|$; the triple is bad. Take $p=1/27$.
 \end{proof}
 
 \section{The transfer operator}\label{sec:transfer}
@@ -253,7 +256,7 @@ law and each $\varphi_i$ is uniform on $[0,2\pi)$.
 \end{lemma}
 
 \begin{proof}
-The directions $\theta_i\in[0,2\pi)$ of the vectors $U_i$ are independent, uniform, and independent of the radii. The map
+The directions $\theta_i\in[0,2\pi)$ of the vectors $U_i$ are independent, uniform, and independent of the lengths. The map
 $(\theta_1,\dots,\theta_k)\mapsto(\theta_1,\theta_2-\theta_1,\dots,\theta_k-\theta_{k-1})$ (mod $2\pi$) is a group
 automorphism of the torus and preserves Haar measure.
 \end{proof}
@@ -265,17 +268,17 @@ G(R_i,R_{i+1},\cos\varphi_i)+G(R_{i+2},R_{i+1},\cos\varphi_{i+1})<0,\qquad G(r,z
 For $|h|\le 1$ the function $G$ is non-increasing in $r\ge 0$ (it is $|(r,0)+z(h,\sqrt{1-h^2})|-r$, and the norm of
 $(r,0)+y$ grows at most at rate one in $r$), non-decreasing in $h$, and convex in $z$.
 
-\emph{Categories.} Fix integers $n,s,A\ge 1$, $Q$ and $D$. Radius bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s]$.
-Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$ and put $w_n=Q-\sum_{j<n}w_j>0$. Angle bin
-$t\in\{0,\dots,A-1\}$ is $J_t=[2\pi t/A,2\pi(t+1)/A)$, and $C_t$ is an integer with $D\max_{\varphi\in J_t}
+\emph{Categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s]$.
+Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$, where $R$ has the Gamma$(2,1)$ law of the $R_i$, and put $w_n=Q-\sum_{j<n}w_j>0$. Angle bin
+$t\in\{0,\dots,A-1\}$ is $J_t=[2\pi t/A,2\pi(t+1)/A)$, and $C_t$ is an integer with $D\sup_{\varphi\in J_t}
 \cos\varphi\le C_t\le D$. On an enlarged probability space we attach to each $R_i$ a category $K_i\in\{0,\dots,n\}$, independent
 across $i$, with $\Prob(K_i=j)=w_j/Q$ and $R_i\in I_j$ whenever $K_i=j<n$; this is possible because $w_j/Q\le
 \Prob(R\in I_j)$ (retain a fraction of the mass of each bin, using an independent uniform variable, and assign the
 rest to the category $n$). Let $t_i$ be the bin of $\varphi_i$. By \Cref{lem:angles}, the $K_i$ and the $t_i$ are
 independent, with $\Prob(t_i=t)=1/A$.
 
-\emph{The swap test.} For ordinary categories $a,b,c<n$ and angle bins $t,u$, call the cell $(a,b,c,t,u)$
-\emph{forbidden} if, for both $z\in\{b,b+1\}$, the integers
+\emph{The exchange test.} A \emph{cell} is a quintuple $(a,b,c,t,u)$ of three categories and two angle bins. A
+cell with $a,b,c<n$ is \emph{forbidden} if, for both $z\in\{b,b+1\}$, the integers
 \[
 X=D(a^2+z^2)+2azC_t,\qquad Y=D(c^2+z^2)+2czC_u,\qquad L^2=D(a+c)^2
 \]
@@ -287,14 +290,14 @@ If $(K_i,K_{i+1},K_{i+2},t_i,t_{i+1})$ is a forbidden cell, then $(U_i,U_{i+1},U
 \end{lemma}
 
 \begin{proof}
-Both sides of \eqref{eq:bad} are homogeneous, so we may multiply all radii by $s$; then $sR_i\in[a,a+1]$,
-$sR_{i+1}\in[b,b+1]$ and $sR_{i+2}\in[c,c+1]$. By the monotonicity of $G$, the left side of \eqref{eq:bad} is at most
+Write $(a,b,c,t,u)$ for this cell. Both sides of \eqref{eq:bad} are homogeneous, so we may multiply all lengths by $s$; then $sR_i\in[a,a+1]$,
+$sR_{i+1}\in[b,b+1]$ and $sR_{i+2}\in[c,c+1]$. By the monotonicity of $G$, since $\cos\varphi_i\le C_t/D\le 1$ and $\cos\varphi_{i+1}\le C_u/D\le 1$, the left side of \eqref{eq:bad} is at most
 $G(a,z,C_t/D)+G(c,z,C_u/D)$ with $z=sR_{i+1}$, and this is convex in $z$, so it is at most its larger value at
 $z\in\{b,b+1\}$. At such an endpoint, multiplying by $\sqrt D$ shows that $G(a,z,C_t/D)+G(c,z,C_u/D)<0$ is the
 inequality $\sqrt X+\sqrt Y<L$.
 \end{proof}
 
-\emph{The operator.} Let $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define $M$ on functions on
+\emph{The transfer operator.} Let $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define the transfer operator $M$ on functions on
 $\mathcal S$ by
 \[
 (Mv)(b,c,u)=w_c\sum_{a=0}^{n}\sum_{t=0}^{A-1}H(a,b,c,t,u)\,v(a,b,t).
@@ -302,7 +305,7 @@ $\mathcal S$ by
 Put $V_2(a,b,t)=w_aw_b$ and $P=M/(QA)$.
 
 \begin{proposition}\label{prop:transfer}
-For $m\ge 2$, $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$. If $v>0$ on $\mathcal S$ and $Pv\le\rho v$
+With the notation of this section, let $\rho>0$ and $m\ge 2$. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$. If $v>0$ on $\mathcal S$ and $Pv\le\rho v$
 coordinatewise, then $q_m\le C\rho^{m-2}$ for a constant $C$ independent of $m$, and $c(0+)\ge b_2\,\rho^{-1/2}$.
 \end{proposition}
 
@@ -310,23 +313,23 @@ coordinatewise, then $q_m\le C\rho^{m-2}$ for a constant $C$ independent of $m$,
 Let $E_m$ be the event that no cell $(K_i,K_{i+1},K_{i+2},t_i,t_{i+1})$, $1\le i\le m-2$, is forbidden. By
 \Cref{lem:cell}, no bad triple implies $E_m$, so $q_m\le\Prob(E_m)$. Since the $K_i$ and $t_i$ are independent with
 the stated laws, the sequence $(K_i,K_{i+1},t_i)$ is a Markov chain, and induction on $m$ shows that $Q^mA^{m-1}
-\Prob(E_m,K_{m-1}=a,K_m=b,t_{m-1}=t)=(M^{m-2}V_2)(a,b,t)$; the initial vector accounts for two radius categories and
-one angle bin, and each step adds one of each. This is the first claim. If $Pv\le\rho v$ with $v>0$, choose $C_0$ with
-$V_2\le C_0v$; since $P$ has non-negative entries, $P^{m-2}V_2\le C_0\rho^{m-2}v$, which gives the second claim with $C=C_0Q^{-2}A^{-1}\sum_{\mathcal S}v$, and
+\Prob(E_m,K_{m-1}=a,K_m=b,t_{m-1}=t)=(M^{m-2}V_2)(a,b,t)$; the initial vector accounts for two length categories and
+one angle bin, and each step adds one of each. This is the first claim. If $Pv\le\rho v$ with $v>0$, choose $\kappa$ with
+$V_2\le \kappa v$; since $P$ has non-negative entries, $P^{m-2}V_2\le \kappa\rho^{m-2}v$, which gives the second claim with $C=\kappa Q^{-2}A^{-1}\sum_{\mathcal S}v$, and
 the third follows from \Cref{prop:block}.
 \end{proof}
 
 \section{The computation}\label{sec:computation}
 
-We take $n=96$, $s=12$ (radii up to $8$), $A=64$, $Q=2^{32}$ and $D=2^{30}$, so $|\mathcal S|=97^2\cdot 64=602{,}176$.
+We take $n=96$, $s=12$ (lengths up to $8$), $A=64$, $Q=2^{32}$ and $D=2^{30}$, so $|\mathcal S|=97^2\cdot 64=602{,}176$.
 All inputs are exact.
 
-\emph{Radius weights.} The Gamma$(2,1)$ law has $\Prob(R>x)=S(x)=(1+x)e^{-x}$, and
+\emph{Length weights.} The Gamma$(2,1)$ law has $\Prob(R>x)=S(x)=(1+x)e^{-x}$, and
 $w_j=\lfloor Q\,(S^-(j/s)-S^+((j+1)/s))\rfloor$ for rational bounds $S^-\le S\le S^+$ obtained from the Taylor
 polynomial of $e^x$ of degree $80$ with an explicit tail bound. Then $w_n=Q-\sum_{j<n}w_j>0$ holds the tail beyond
-radius $8$ and all rounding losses.
+length $8$ and all rounding losses.
 
-\emph{Cosine bounds.} For $j=\min(t,A-1-t)$ the largest value of $\cos$ on $J_t$ is $\cos(2\pi j/A)$ with
+\emph{Cosine bounds.} For $j=\min(t,A-1-t)$ the supremum of $\cos$ on $J_t$ is $\cos(2\pi j/A)$ with
 $0\le 2\pi j/A<\pi$. With a rational $\pi^-<\pi$ from Machin's formula $\pi=16\arctan\frac15-4\arctan\frac1{239}$ and
 alternating series, $\cos(2\pi j/A)\le\cos(2\pi^-j/A)$, which is bounded above by the cosine series through degree
 $80$ plus the absolute value of the next term; $C_t$ is $D$ times this bound, rounded up. For every $t$, $|C_t|\le D$.
@@ -343,17 +346,19 @@ The result is $N=819{,}869{,}595{,}611$, with $29{,}785{,}462\le v_i\le 2^{40}+1
 c(0+)\ge\frac{\sqrt{2/\pi}}{e}\sqrt{\frac{10^{12}}{N}}=0.3241702746\dots,
 \]
 and the inequality $b_2\,\rho^{-1/2}>0.32417$ is equivalent to $2>0.32417^2\,\pi e^2\rho$, checked in rational arithmetic with
-upper bounds for $\pi$ and $e$. The swap test is decided in integers as $\Delta>0$ and $\Delta^2>4XY$ with $\Delta=L^2-X-Y$,
+upper bounds for $\pi$ and $e$. The exchange test is decided in integers as $\Delta>0$ and $\Delta^2>4XY$ with $\Delta=L^2-X-Y$,
 which is equivalent to $\sqrt X+\sqrt Y<L$ because $(\sqrt X+\sqrt Y)^2=X+Y+2\sqrt{XY}$. The way $v$ was found plays no role: any positive $v$ for which the displayed
 inequalities hold proves the bound.
 
 \emph{Independent check.} The program \texttt{check.py} shares no code with \texttt{cert.cpp} and \texttt{grid.py}.
-It re-verifies every weight and cosine bound with different enclosures: $e^{-x}$ by its alternating series, $\pi$ by
+It re-verifies the inequalities $w_j\le Q\,\Prob(R\in I_j)$ and $D\sup_{J_t}\cos\le C_t$ with different enclosures: $e^{-x}$ by its alternating series, $\pi$ by
 Euler's formula $\pi=4\arctan\frac12+4\arctan\frac13$, and $\cos x=1-2\sin^2(x/2)$ with a lower bound for $\sin$. It
-then recomputes $Mv$ from $v$ without the threshold structure used in \texttt{cert.cpp}. The swap test is evaluated in
-floating point, and every comparison within $10^{-3}$ of a tie would be redone in integers (in the run reported here there were none), in the form $L^2>X+Y$ and
-$(L^2+Y-X)^2>4L^2Y$. Given $L^2>X+Y$, the second inequality is $L^2+Y-X>2L\sqrt Y$, that is, $X<(L-\sqrt Y)^2$, which
-is again $\sqrt X+\sqrt Y<L$. The sums are matrix products on the $20$-bit halves of $v$, which are exact in double precision.
+then recomputes $Mv$ from $v$ without the threshold structure used in \texttt{cert.cpp}. The integers $X$ and $Y$ are below $2^{46}$ and
+$L=2^{15}(a+c)$, so $\sqrt X+\sqrt Y-L$ is computed in double precision with error below $10^{-8}$. A comparison with
+$|\sqrt X+\sqrt Y-L|<10^{-3}$ is decided in integers, in the form $L^2>X+Y$ and $(L^2+Y-X)^2>4L^2Y$; for the grid
+above no comparison falls in this range. Given $L^2>X+Y$, the second inequality is $L^2+Y-X>2L\sqrt Y$, that is, $X<(L-\sqrt Y)^2$, which
+is again $\sqrt X+\sqrt Y<L$. Each $v_i$ is written as $2^{20}h_i+l_i$ with $0\le l_i<2^{20}$ and $0\le h_i\le 2^{20}$. A sum over $(a,t)$ of
+the $h_i$ or of the $l_i$ has at most $96\cdot 64$ terms, is below $2^{33}$, and is exact in double precision.
 The result is compared with the saved $Mv$ entry by entry, and the $602{,}176$ inequalities and the final rational
 inequality are checked with exact integers.
 
@@ -380,7 +385,7 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 The arguments of \Cref{sec:first,sec:exchange,sec:transfer} and the programs of \Cref{sec:computation} were developed
 with AI systems (OpenAI Codex and Anthropic Claude agents working under the author's direction), which also drafted the
 text. The problem, the limit theorem used throughout and the branching random walk comparison are due to Aldous and
-Krikun \cite{AK}; the path count with an exponential weight is in the proof of \cite[Lemma~2.1]{GM} of Gou\'er\'e
+Krikun \cite{AK}; the exponential tilt of the path count is in the proof of \cite[Lemma~2.1]{GM} of Gou\'er\'e
 and Marchand; the asymptotic upper bound is Rhee's theorem \cite{Rhee}. The author directed the work and is
 responsible for the content of the paper and for decisions concerning its dissemination.
 
@@ -404,31 +409,37 @@ $\Gamma$ & Euler's gamma function & \Cref{sec:intro}\\
 $v_d$ & volume of the unit ball in $\R^d$ & \Cref{sec:intro}\\
 $T_m$ & shortest path length from $0$ through $m$ points of $\Pi$ & \Cref{sec:intro}\\
 $L_k(\delta)$ & shortest cycle through $\lceil\delta k\rceil$ of $k$ points & \Cref{sec:intro}\\
+$\delta$ & proportion of the points visited & \Cref{sec:intro}\\
+$p$ & lower bound for the probability that a triple is bad & \Cref{sec:exchange}\\
 $c(\delta)$, $c(0+)$ & the constants of Aldous and Krikun & \Cref{sec:intro}\\
 $\beta_d$ & the travelling salesman constant, $c(1)$ & \Cref{sec:intro}\\
 $W(\ell)$ & most points of $\Pi$ on a path of length at most $\ell$ & \Cref{sec:intro}\\
 $b_d$ & first moment bound $(d/e)(v_d\,d!)^{-1/d}$ & \Cref{sec:intro}\\
+$a$ & length per point & \Cref{sec:intro}\\
+$\lambda$ & parameter of the exponential tilt & \Cref{sec:intro}\\
+$x_i$, $u_i$ & points of a path, steps $u_i=x_i-x_{i-1}$ & \Cref{sec:intro}\\
 $Z_m(a)$, $Z^*_m(a)$ & numbers of short paths, with no bad triple for $Z^*_m$ & \Cref{sec:intro}, \Cref{sec:exchange}\\
 $\mu_\lambda$ & law with density $e^{-\lambda|u|}\lambda^2/(2\pi)$ on $\R^2$ & \Cref{sec:exchange}\\
 $q_m$ & probability of no bad triple among $m$ steps & \Cref{sec:intro}, \Cref{prop:block}\\
 $U_i$ & independent steps with law $\mu_1$ & \Cref{prop:block}\\
 $R_i$, $\varphi_i$ & step length, angle between consecutive steps & \Cref{sec:transfer}\\
 $\theta_i$ & direction of the step $U_i$ & \Cref{sec:transfer}\\
-$I_j$, $J_t$ & radius bin, angle bin & \Cref{sec:transfer}\\
-$X$, $Y$, $L^2$ & integer squared lengths in the swap test & \Cref{sec:transfer}\\
+$I_j$, $J_t$ & length bin, angle bin & \Cref{sec:transfer}\\
+$X$, $Y$, $L^2$ & integer squared lengths in the exchange test & \Cref{sec:transfer}\\
 $\Delta$ & $L^2-X-Y$ & \Cref{sec:computation}\\
 $S$ & tail $\Prob(R>x)=(1+x)e^{-x}$ of the step length & \Cref{sec:computation}\\
 $G(r,z,h)$ & $\sqrt{r^2+z^2+2rzh}-r$ & \eqref{eq:bad}\\
 $n,s,A,Q,D$ & grid parameters & \Cref{sec:transfer}\\
-$w_j$, $C_t$ & integer radius weights, cosine bounds & \Cref{sec:transfer}\\
-$K_i$, $t_i$ & radius category, angle bin & \Cref{sec:transfer}\\
+$S$, $S^\pm$ & tail of the Gamma$(2,1)$ law, rational bounds for it & \Cref{sec:computation}\\
+$\pi^-$ & rational lower bound for $\pi$ & \Cref{sec:computation}\\
+$w_j$, $C_t$ & integer length weights, cosine bounds & \Cref{sec:transfer}\\
+$K_i$, $t_i$ & length category, angle bin & \Cref{sec:transfer}\\
 $\mathcal S$, $V_2$ & state space, initial vector & \Cref{sec:transfer}\\
 $H$, $M$, $P$ & cell indicator, transfer operator, $M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
 $E_m$ & no forbidden cell among $m$ steps & \Cref{prop:transfer}\\
 $v$, $N$, $\rho$ & certificate vector, its numerator, $N/10^{12}$ & \Cref{sec:intro}, \Cref{sec:computation}
 \end{tabular}
 \end{center}
-Letters used inside a single proof (such as $B$, $F$ and $u_1,u_2,u_3$) are defined there and are not listed.
 
 \begin{thebibliography}{99}
 
