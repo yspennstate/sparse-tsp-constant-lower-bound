@@ -86,17 +86,23 @@ $0$ exactly when $a<b_d$, where
 \[
 b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots.
 \]
-Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$; in the plane the proof of \cite[Theorem~18]{Carlsson} gives the
-same value. No first moment of $Z_m(a)$ gives more: by \cite[Corollary~8]{Carlsson}, in every dimension,
+Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In the plane the same value follows from the proof of
+\cite[Theorem~18]{Carlsson}; the bounds $(2\pi e)^{-1/2}\approx0.2420$ from the proof of \cite[Lemma~2.1]{GM} and
+$1/17$ from \cite[Theorem~1]{ADHT} are smaller. In \cite[Section~3.3]{AK} the integral of the tilt is printed as
+$v_d\,d!\,\lambda^{-(d-1)}$, which leads to $(2\pi e)^{-1}\approx 0.0585$ in the plane.
+
+No first moment of $Z_m(a)$ gives more than $b_d$. By \cite[Corollary~8]{Carlsson}, in every dimension,
 \[
 \E Z_m(a)=\frac{(v_d\,d!)^m(am)^{dm}}{(dm)!},
 \]
-which tends to infinity for every $a>b_d$ (\Cref{thm:first}); \cite[Lemma~9]{Carlsson} is the first moment bound
-built on this formula. In particular the expression $e(d-1)(v_d\,d!)^{-1/(d-1)}$ of
-the note \cite{Anote}, obtained by replacing $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, does not follow from the tilt: in
-the plane it equals $e/(2\pi)\approx0.4326$, which exceeds $b_2$. In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$ with steps
-$u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the 2-opt move of Croes \cite{Croes} on two consecutive points,
-does not shorten the path, so the steps satisfy the exchange inequality
+and this tends to infinity for every $a>b_d$ (\Cref{thm:first}); \cite[Lemma~9]{Carlsson} is the first moment bound
+built on this formula. In particular the value $e/(2\pi)\approx0.4326$ that the note \cite{Anote} gives in the plane,
+obtained by replacing $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, exceeds $b_2$ and does not follow from the tilt.
+
+In the plane we count only the paths that no exchange of two consecutive points shortens. Let
+$(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$ with steps $u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the
+2-opt move of Croes \cite{Croes} on two consecutive points, does not shorten the path, so the steps satisfy the
+exchange inequality
 \[
 |u_i|+|u_{i+2}|\le|u_i+u_{i+1}|+|u_{i+1}+u_{i+2}|,\qquad 1\le i\le m-2
 \]
@@ -105,14 +111,14 @@ satisfy the exchange inequality for $1\le i\le m-2$. Then
 \[
 \Prob(T_m\le am)\le\bigl(e^{\lambda a}\,2\pi\lambda^{-2}\bigr)^m q_m\qquad\text{for every }\lambda>0,
 \]
-so a bound $q_m=O(\rho^m)$ with $0<\rho<1$ gives $c(0+)\ge b_2\,\rho^{-1/2}$ (\Cref{prop:block}). For independent
-vectors the exchange inequalities for disjoint triples of steps are independent events, and each fails with
-probability at least $1/27$; hence $q_m\le(26/27)^{\lfloor m/3\rfloor}$ and $c(0+)\ge b_2(27/26)^{1/6}>0.2953$
-(\Cref{prop:hand}). To use all triples we group the step lengths into $96$ length bins of width $1/12$ and one further
-category, which gives $97$ length categories, and the angles between consecutive steps into $64$ angle bins. This
-bounds $q_m$ by a constant times the sum of the entries of $P^{m-2}$ applied to a fixed non-negative vector, where $P$
-is the transfer operator, a non-negative matrix on $97^2\cdot 64=602{,}176$ states, each state being two consecutive
-length categories and one angle bin (\Cref{prop:transfer}). There is a positive integer vector $v$ with $Pv\le\rho v$
+so a bound $q_m=O(\alpha^m)$ with $0<\alpha<1$ gives $c(0+)\ge b_2\,\alpha^{-1/2}$ (\Cref{prop:block}). The
+exchange inequalities for disjoint triples of steps are independent, and each fails with probability at least $1/27$.
+Hence $q_m\le(26/27)^{\lfloor m/3\rfloor}$ and $c(0+)\ge b_2(27/26)^{1/6}>0.2953$ (\Cref{prop:hand}). To use all
+triples, we sort the step lengths into $97$ length categories ($96$ bins of width $1/12$ and one further category)
+and the angles between consecutive steps into $64$ angle bins. Then $q_m$ is at most a constant times the sum of the
+entries of $P^{m-2}$ applied to a fixed non-negative vector. Here $P$ is the transfer operator, a non-negative matrix
+on $97^2\cdot 64=602{,}176$ states, each made of two consecutive length categories and one angle bin
+(\Cref{prop:transfer}). There is a positive integer vector $v$ with $Pv\le\rho v$
 and $\rho=0.819869595611$ (\Cref{prop:cert}). Hence $c(0+)\ge b_2\,\rho^{-1/2}>0.32417$ (\Cref{thm:main}).
 
 \begin{proposition}[{first moment; \cite[Corollary~8]{Carlsson}}]\label{thm:first}
@@ -131,17 +137,12 @@ For $d=2$, $c(0+)\ge b_2\,\rho^{-1/2}=0.324170\dots$ with $\rho=0.819869595611$,
 $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$.
 \end{corollary}
 
-The corollary follows from
-$b_d\le c(0+)\le\beta_d$, from $b_d/\sqrt d\to(2\pi e)^{-1/2}$, and from Rhee's theorem
-$\beta_d/\sqrt d\to(2\pi e)^{-1/2}$ \cite{Rhee}.
-
 The theorem of Carlsson \cite[Theorem~18]{Carlsson} states that for each fixed $0<\delta<1$ the shortest cycle
 through $\lceil\delta g\rceil$ of $g$ independent uniform points in a region of unit area in the plane, divided by
 $\delta\sqrt g$, has $\liminf$ above $0.2935$ almost surely. Its proof gives the lower bound
 $\sqrt{2/(\pi e)}\,(1-\delta)^{(1-\delta)/(2\delta)}$, which is increasing in $\delta$ and tends to $b_2$ as
 $\delta\downarrow 0$. After scaling the region to area $g$ this is $c(\delta)\ge b_2$ for $0<\delta<1$, and (b) gives
-$c(0+)\ge b_2$. In \cite[Section~3.3]{AK} the integral of the tilt is printed as $v_d\,d!\,\lambda^{-(d-1)}$, which
-leads to $(2\pi e)^{-1}\approx 0.0585$ in the plane.
+$c(0+)\ge b_2$.
 
 In the continuous greedy paths model of Gou\'er\'e and Marchand \cite{GM} with all weights equal to one, let
 $W(\ell)$ be the largest number of points of $\Pi$ on a path of length at most $\ell$ starting at the origin. Then
@@ -152,7 +153,7 @@ most $17\gamma\sqrt g$ with probability tending to one. A path of length $\ell$ 
 side $2\ell$, which holds at most $4(1+\varepsilon)\ell^2$ points of $\Pi$ with probability tending to one, for each
 $\varepsilon>0$; so $W(\ell)\le 17\sqrt{1+\varepsilon}\,\ell$ with probability tending to one, and $c(0+)\ge1/17$. The
 proof of \cite[Lemma~2.1]{GM}, which uses the tilt with $\lambda=1/a$, gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$ in every
-dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. For all large $d$ the expression of the
+dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. For all large $d$ the expression $e(d-1)(v_d\,d!)^{-1/(d-1)}$ of the
 note \cite{Anote} exceeds $\beta_d\ge c(0+)$. Indeed $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
 $e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d(1+O(\log d/d))$, and $b_d/\sqrt d$ and $\beta_d/\sqrt d$ have the same limit
 $(2\pi e)^{-1/2}$, by the proof of \Cref{cor:asym} and by \cite{Rhee}; so the ratio of the expression of the note to
@@ -236,7 +237,7 @@ $(U_i,U_{i+1},U_{i+2})$, $1\le i\le m-2$, is bad. Then for all $a,\lambda>0$,
 \[
 \Prob(T_m\le am)\le\bigl(e^{\lambda a}\,2\pi\lambda^{-2}\bigr)^m q_m ,
 \]
-and if $\rho>0$ and $\limsup_m q_m^{1/m}\le\rho$, then $c(0+)\ge b_2\,\rho^{-1/2}$.
+and if $\alpha>0$ and $\limsup_m q_m^{1/m}\le\alpha$, then $c(0+)\ge b_2\,\alpha^{-1/2}$.
 \end{proposition}
 
 \begin{proof}
@@ -249,8 +250,8 @@ $\mathbf 1\{\sum|u_i|\le am\}\le e^{\lambda(am-\sum|u_i|)}$,
 \mathbf 1\{\text{no bad triple}\}\,du_1\cdots du_m=e^{\lambda am}(2\pi\lambda^{-2})^m q_m ,
 \]
 where the last step uses the scale invariance of badness. With $\lambda=2/a$ the factor $e^{\lambda a}\,2\pi\lambda^{-2}$ equals $\pi e^2a^2/2$. If
-$a<b_2\rho^{-1/2}$, choose $\varepsilon>0$ with $(\pi e^2a^2/2)(\rho+\varepsilon)<1$; then
-$q_m\le(\rho+\varepsilon)^m$ for all large $m$, the right side tends to $0$, and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge a$.
+$a<b_2\alpha^{-1/2}$, choose $\varepsilon>0$ with $(\pi e^2a^2/2)(\alpha+\varepsilon)<1$; then
+$q_m\le(\alpha+\varepsilon)^m$ for all large $m$, the right side tends to $0$, and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge a$.
 \end{proof}
 
 Badness of disjoint triples involves disjoint sets of the $U_i$, so $q_m\le(1-p)^{\lfloor m/3\rfloor}$ whenever
@@ -333,9 +334,9 @@ Put $V_2(j,k,t)=w_jw_k$, and let $P=M/(QA)$ be the transfer operator. For a func
 $\sum_{\mathcal S}f$ for the sum of its values.
 
 \begin{proposition}\label{prop:transfer}
-Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\rho>0$, $v>0$
-on $\mathcal S$ and $Pv\le\rho v$ coordinatewise, then $q_m\le\kappa Q^{-2}A^{-1}\rho^{m-2}\sum_{\mathcal S}v$ for
-$m\ge2$, where $\kappa>0$ is any number with $V_2\le\kappa v$, and $c(0+)\ge b_2\,\rho^{-1/2}$.
+Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\alpha>0$, $v>0$
+on $\mathcal S$ and $Pv\le\alpha v$ coordinatewise, then $q_m\le\kappa Q^{-2}A^{-1}\alpha^{m-2}\sum_{\mathcal S}v$ for
+$m\ge2$, where $\kappa>0$ is any number with $V_2\le\kappa v$, and $c(0+)\ge b_2\,\alpha^{-1/2}$.
 \end{proposition}
 
 \begin{proof}
@@ -343,8 +344,8 @@ Let $E_m$ be the event that no cell $(K_i,K_{i+1},K_{i+2},t_i,t_{i+1})$, $1\le i
 \Cref{lem:cell}, no bad triple implies $E_m$, so $q_m\le\Prob(E_m)$. Since the $K_i$ and $t_i$ are independent with
 the stated laws, the sequence $(K_i,K_{i+1},t_i)$ is a Markov chain, and induction on $m$ shows that $Q^mA^{m-1}
 \Prob(E_m,K_{m-1}=j,K_m=k,t_{m-1}=t)=(M^{m-2}V_2)(j,k,t)$; the initial vector accounts for two length categories and
-one angle bin, and each step adds one of each. This is the first claim. If $Pv\le\rho v$ with $v>0$, such a $\kappa$
-exists, and since $P$ has non-negative entries, $P^{m-2}V_2\le \kappa\rho^{m-2}v$, which gives the second claim;
+one angle bin, and each step adds one of each. This is the first claim. If $Pv\le\alpha v$ with $v>0$, such a $\kappa$
+exists, and since $P$ has non-negative entries, $P^{m-2}V_2\le \kappa\alpha^{m-2}v$, which gives the second claim;
 the third follows from \Cref{prop:block}.
 \end{proof}
 
@@ -467,7 +468,8 @@ $\gamma$ & length of a curve in the unit square & \Cref{sec:intro}\\
 $W(\ell)$, $\ell$ & most points of $\Pi$ on a path of length at most $\ell$; that length & \Cref{sec:intro}\\
 $q_m$ & probability that $m$ steps satisfy all exchange inequalities & \Cref{sec:intro}, \Cref{prop:block}\\
 $P$ & transfer operator, $P=M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
-$v$, $\rho$ & positive vector with $Pv\le\rho v$, and $N/10^{12}$ & \Cref{sec:intro}\\
+$\alpha$ & rate with $q_m=O(\alpha^m)$ or $Pv\le\alpha v$ & \Cref{sec:intro}\\
+$v$, $\rho$ & positive vector with $Pv\le\rho v$; $\rho=N/10^{12}$ & \Cref{sec:intro}\\
 $\mathbf{1}$ & indicator & \Cref{sec:first}\\
 $r_i$, $\sigma_i$ & length $|u_i|$, normalized surface measure & \Cref{sec:first}\\
 $B$ & length of a path through $m$ points & \Cref{sec:exchange}\\
@@ -487,7 +489,8 @@ $w_j$, $C_t$ & integer length weights, cosine bounds & \Cref{sec:transfer}\\
 $K_i$, $t_i$ & length category, index of the angle bin of $\varphi_i$ & \Cref{sec:transfer}\\
 $(j,k,l,t,\tau)$ & cell: three length categories and two angle bins & \Cref{sec:transfer}\\
 $z$ & middle length of a cell, scaled by $s$ & \Cref{sec:transfer}\\
-$X$, $Y$, $\Lambda$ & the integers $X$, $Y$ and the number $\Lambda=\sqrt D\,(j+l)$ & \Cref{sec:transfer}\\
+$X$, $Y$ & $D(j^2+z^2)+2jzC_t$ and $D(l^2+z^2)+2lzC_\tau$ & \Cref{sec:transfer}\\
+$\Lambda$ & $\sqrt D\,(j+l)$ & \Cref{sec:transfer}\\
 $H$ & cell indicator, $0$ on forbidden cells & \Cref{sec:transfer}\\
 $\mathcal S$ & set of states $\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ & \Cref{sec:transfer}\\
 $\sum_{\mathcal S}f$ & sum of the values of a function $f$ on $\mathcal S$ & \Cref{sec:transfer}\\
@@ -499,7 +502,7 @@ $\psi$, $\psi^\pm$ & tail $(1+x)e^{-x}$ of the step length, rational bounds & \C
 $t'$ & $\min(t,A-1-t)$ & \Cref{sec:computation}\\
 $\pi^-$ & rational lower bound for $\pi$ & \Cref{sec:computation}\\
 $\eta$ & a state in $\mathcal S$ & \Cref{sec:computation}\\
-$N$ & the integer $10^{12}\rho$ & \Cref{sec:computation}\\
+$N$ & least integer with $10^{12}Mv\le NQAv$ on $\mathcal S$ & \Cref{sec:computation}\\
 $\Delta$ & $\Lambda^2-X-Y$ & \Cref{sec:computation}
 \end{longtable}}
 
