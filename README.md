@@ -10,15 +10,16 @@ plane, with a transfer operator and a positive vector checked in exact integer a
 
 - `main.tex`, `main.pdf`: the paper.
 - `code/grid.py`: writes `grid.txt`, the integer length weights and cosine bounds (standard library only).
-- `code/cert.cpp`: finds the certificate vector v, computes Mv exactly and prints the least numerator N.
+- `code/cert.cpp`: finds the positive vector v, computes Mv exactly and prints the least numerator N.
 - `code/check.py`: independent check of grid.txt, v, Mv, the inequalities and the final constant (needs numpy).
 - `code/first_moment.py`: the first moment constants of Section 2.
 - `code/SHA256SUMS`: hashes of grid.txt, cert.cpp, check.py, grid.py and the two vectors.
+- `LICENSE`: CC BY 4.0 for the paper, MIT for the programs.
 
 The vectors `final.v` (7.1 MB) and `final.Mv` (13.9 MB), one integer per line in the state order
 (a*(n+1)+b)*A+t, are in `code/`.
 
-## Reproducing the certificate
+## Reproducing the vector v and the check
 
 ```
 cd code
