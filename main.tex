@@ -139,7 +139,8 @@ $\beta_d/\sqrt d\to(2\pi e)^{-1/2}$ \cite{Rhee}.
 \begin{remark}\label{rem:note}
 There is $d_0$ such that $e(d-1)(v_d\,d!)^{-1/(d-1)}>\beta_d\ge c(0+)$ for all $d\ge d_0$. Indeed
 $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so $e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2 b_d(1+O(\log d/d))$, whose
-ratio to $\sqrt d$ tends to $e^2(2\pi e)^{-1/2}>(2\pi e)^{-1/2}=\lim\beta_d/\sqrt d$.
+ratio to $\sqrt d$ tends to $e^2(2\pi e)^{-1/2}>(2\pi e)^{-1/2}=\lim\beta_d/\sqrt d$; the estimates of
+$(v_d\,d!)^{1/d}$ and $b_d$ used here are derived in the proof of \Cref{cor:asym}.
 \end{remark}
 
 The theorem of Carlsson \cite[Theorem~18]{Carlsson} states that for each fixed $0<\delta<1$ the shortest cycle
@@ -198,8 +199,7 @@ $\frac1m\log\E Z_m(a)\to\log\bigl(v_d\,d!\,(ae/d)^d\bigr)$, which is negative fo
 \end{proof}
 
 \begin{proof}[Proof of \Cref{cor:asym}]
-If $c(0+)<b_d$, choose $c(0+)<a<b_d$; then $\Prob(T_m\le am)\to 1$ by \cite[Theorem~1(e)]{AK}, while
-$\Prob(T_m\le am)\le\E Z_m(a)\to 0$ by \Cref{thm:first}. So $c(0+)\ge b_d$. As $d\to\infty$, Stirling's formula gives $\log v_d=\frac d2\log\frac{2\pi e}{d}-\frac12\log(\pi d)+o(1)$ and
+The bound $c(0+)\ge b_d$ is derived in \Cref{sec:intro}; it remains to find $b_d$ for large $d$. As $d\to\infty$, Stirling's formula gives $\log v_d=\frac d2\log\frac{2\pi e}{d}-\frac12\log(\pi d)+o(1)$ and
 $\log d!=d\log\frac de+\frac12\log(2\pi d)+o(1)$, so, with absolute implied constants, $(v_d\,d!)^{1/d}=\sqrt{2\pi d/e}\,(1+O(\log d/d))$. Hence
 $b_d=\sqrt{d/(2\pi e)}\,(1+O(\log d/d))$, and with $c(0+)\ge b_d$, $c(0+)\le\beta_d$ and \cite{Rhee} the limit
 follows.
@@ -377,8 +377,9 @@ Hence $Pv\le\rho v$ with $\rho=N/10^{12}=0.819869595611<0.81987$.
 \end{proposition}
 
 \begin{proof}
-The vector $v$ is the file \texttt{code/final.v} of the repository \cite{Repo}, whose SHA-256 digest is
-\texttt{815642f24548ff606a9e4de4169c9ba723d9ff8018e287dad69b284e21b8cd5b}. Its entries lie in the stated range, and
+The vector $v$ is the file \texttt{code/final.v} of the repository named in the statement on code availability. Its SHA-256 digest is
+\begin{center}\small\texttt{815642f24548ff606a9e4de4169c9ba723d9ff8018e287dad69b284e21b8cd5b}.\end{center}
+\noindent Its entries lie in the stated range, and
 the displayed inequality, between integers below $2^{126}$, holds at each of the $602{,}176$ states. The program
 \texttt{code/check.py} of the same repository checks the integers $w_j$ and $C_t$ against independent enclosures,
 recomputes $Mv$ from $v$, deciding every comparison near a tie exactly in integers, and checks the inequality. The integer $N$ is the
@@ -396,6 +397,14 @@ The inequality $b_2\,\rho^{-1/2}>0.32417$ is equivalent to $2>0.32417^2\,\pi e^2
 $e<2.718282$, the right side is less than $0.32417^2\cdot 3.141593\cdot 2.718282^2\cdot 0.819869595611<1.999998$, a
 product of rationals.
 \end{proof}
+
+\section*{Code availability}
+
+The programs and the vectors $v$ and $Mv$ are at tag \texttt{v1.0} of the repository
+\begin{center}\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound},\end{center}
+\noindent and the tag is archived on
+Zenodo together with this paper. The README there gives the commands that recompute $v$, $N$ and the checks of
+\Cref{prop:cert}.
 
 \section*{Acknowledgments and funding}
 
@@ -461,7 +470,7 @@ $b_d$ & first moment bound $(d/e)(v_d\,d!)^{-1/d}$ & \Cref{sec:intro}\\
 $W(\ell)$ & most points of $\Pi$ on a path of length at most $\ell$ & \Cref{sec:intro}\\
 $q_m$ & probability of no bad triple among $m$ steps & \Cref{sec:intro}, \Cref{prop:block}\\
 $P$ & transfer operator, the non-negative matrix $M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
-$v$, $\rho$ & positive vector with $Pv\le\rho v$, and $N/10^{12}$ & \Cref{prop:cert}\\
+$v$, $\rho$ & positive vector with $Pv\le\rho v$, and $N/10^{12}$ & \Cref{sec:intro}\\
 $d_0$ & threshold dimension in \Cref{rem:note} & \Cref{rem:note}\\
 $\mathbf{1}$ & indicator & \Cref{sec:first}\\
 $r_i$, $\sigma_i$ & length $|u_i|$, normalized surface measure & \Cref{sec:first}\\
@@ -553,10 +562,6 @@ random formulas}, Random Structures Algorithms \textbf{12} (1998), 253--269.
 
 \bibitem{LP}
 G.~Last and M.~Penrose, \emph{Lectures on the Poisson Process}, Cambridge University Press, Cambridge, 2017. \doi{10.1017/9781316104477}.
-
-\bibitem{Repo}
-Y.~Shmalo, \emph{Lower bounds for the sparse travelling salesman constant: code and certificate}, 2026.
-\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound}
 
 \bibitem{Rhee}
 W.~T.~Rhee, \emph{On the travelling salesperson problem in many dimensions}, Random Structures Algorithms \textbf{3}
