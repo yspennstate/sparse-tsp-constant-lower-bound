@@ -69,7 +69,8 @@ We call $c(0+)$ the sparse travelling salesman constant: by (a) and (b) it is th
 the constants for shortest cycles through a proportion $\delta$ of the points. It depends on $d$, which the notation
 omits. The constant $c(1)$ is the
 Beardwood--Halton--Hammersley constant $\beta_d$ \cite{BHH}, so (b) gives $c(0+)\le\beta_d$. In the plane
-$\beta_2\le 0.90367$ by a computer-assisted argument of Gaudio and Guan \cite{GG}.
+$0.6277\le\beta_2\le 0.90367$, by Gaudio and Jaillet \cite{GJ} and by a computer-assisted argument of Gaudio and
+Guan \cite{GG}.
 
 The known lower bounds for $c(0+)$ are first moment bounds. For $a>0$ let $Z_m(a)$ be the number of ordered
 $m$-tuples of distinct points $x_1,\dots,x_m$ of $\Pi$ with $\sum_{i=1}^m|x_i-x_{i-1}|\le am$, where $x_0=0$, so that
@@ -84,7 +85,7 @@ where
 \[
 b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots,
 \]
-and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In \cite{AK} the integral is printed as
+and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In \cite[Section~3.3]{AK} the integral is printed as
 $v_d\,d!\,\lambda^{-(d-1)}$, which leads to the value $(2\pi e)^{-1}\approx 0.0585$ in the plane. For $d=2$ the bound
 $c(0+)\ge b_2$ also follows from the proof of a theorem of Carlsson \cite[Theorem~18]{Carlsson}.
 
@@ -147,7 +148,7 @@ with all weights equal to one, let $W(\ell)$ be the largest number of points of 
 $\ell$ starting at the origin. Then $W(\ell)\ge m$ exactly when $T_m\le\ell$, so by \cite[Theorem~1(e)]{AK}
 $W(\ell)/\ell\to 1/c(0+)$ in probability as $\ell\to\infty$. The proof of \cite[Lemma~2.1]{GM} uses the exponential
 tilt with $\lambda=1/a$, which gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$, equal to $(2\pi e)^{-1/2}\approx 0.2420$ in the
-plane. A note of Aldous \cite{Anote} replaces $e^{-1}$ by $e$ in (8) of \cite{AK}, which gives
+plane. A note of Aldous \cite{Anote} replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, which gives
 $e(d-1)(v_d\,d!)^{-1/(d-1)}$, equal to $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
 $c(0+)\ge e/(2\pi)$ does not follow from the exponential tilt, and for all large $d$ the expression of the note exceeds
 $\beta_d\ge c(0+)$. Indeed $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
@@ -540,6 +541,10 @@ G.~A.~Croes, \emph{A method for solving traveling-salesman problems}, Oper.\ Res
 \bibitem{GG}
 J.~Gaudio and C.~K.~Guan, \emph{An improved upper bound for the Euclidean TSP constant using band crossovers}, 2026.
 arXiv:2602.11250.
+
+\bibitem{GJ}
+J.~Gaudio and P.~Jaillet, \emph{An improved lower bound for the traveling salesman constant}, Oper.\ Res.\ Lett.\
+\textbf{48} (2020), 67--70. \doi{10.1016/j.orl.2019.11.007}.
 
 \bibitem{GM}
 J.-B.~Gou\'er\'e and R.~Marchand, \emph{Continuous first-passage percolation and continuous greedy paths model: linear
