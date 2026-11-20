@@ -89,8 +89,9 @@ and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. Other values for the plane are
 the integral is printed as $v_d\,d!\,\lambda^{-(d-1)}$, which leads to $(2\pi e)^{-1}\approx 0.0585$. The proof of
 \cite[Lemma~2.1]{GM}, for the continuous greedy paths model of Gou\'er\'e and Marchand with all weights equal to one,
 uses the tilt with $\lambda=1/a$ and gives $(2\pi e)^{-1/2}\approx 0.2420$. Arias-Castro, Donoho, Huo and Tovey
-\cite[Theorem~1]{ADHT} prove that among $n$ uniform points in the unit square the largest number on one curve of
-length at most $\ell$ lies between $\ell\sqrt n/5$ and $17\ell\sqrt n$ with probability tending to one; after scaling,
+\cite[Theorem~1]{ADHT} prove that, for each $\gamma>0$, among $g$ independent uniform points in the unit square the
+largest number on one curve of length at most $\gamma$ lies between $\gamma\sqrt g/5$ and $17\gamma\sqrt g$ with
+probability tending to one as $g\to\infty$; after scaling,
 the upper bound gives $c(0+)\ge 1/17\approx 0.0588$. The proof of a theorem of Carlsson \cite[Theorem~18]{Carlsson}
 gives $c(0+)\ge b_2$ again. A note of Aldous \cite{Anote} replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, which gives
 $e(d-1)(v_d\,d!)^{-1/(d-1)}$, equal to $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
@@ -412,7 +413,7 @@ paper~\cite{MathBrainPaper}, the Math Brain repository~\cite{MathBrainRepo} and 
 repository~\cite{BrainFramework}.
 
 The research presented in this paper was supported by the European Research Council (ERC) under the European
-Union's Horizon Europe research and innovation programme (grant agreement No.\ 101041711). It was also supported by
+Union's Horizon Europe research and innovation program (grant agreement No.\ 101041711). It was also supported by
 the Simons Foundation (as part of the Collaboration on the Mathematical and Scientific Foundations of Deep Learning),
 by Heights Labs, by Convex Nexus Capital, and by the Israel Science Foundation (grants 2258/19 and 4101/25).
 
@@ -464,7 +465,8 @@ $x_i$, $u_i$ & points of a path, steps $u_i=x_i-x_{i-1}$ & \Cref{sec:intro}\\
 $\Prob$, $\E$ & probability, expectation & \Cref{sec:intro}\\
 $\lambda$ & parameter of the exponential tilt & \Cref{sec:intro}\\
 $b_d$ & first moment bound $(d/e)(v_d\,d!)^{-1/d}$ & \Cref{sec:intro}\\
-$W(\ell)$ & most points of $\Pi$ on a path of length at most $\ell$ & \Cref{sec:intro}\\
+$\gamma$ & length of a curve in the unit square & \Cref{sec:intro}\\
+$W(\ell)$, $\ell$ & most points of $\Pi$ on a path of length at most $\ell$; that length & \Cref{sec:intro}\\
 $q_m$ & probability of no bad triple among $m$ steps & \Cref{sec:intro}, \Cref{prop:block}\\
 $P$ & transfer operator, the non-negative matrix $M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
 $v$, $\rho$ & positive vector with $Pv\le\rho v$, and $N/10^{12}$ & \Cref{sec:intro}\\
