@@ -86,8 +86,7 @@ b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\q
 \]
 and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In \cite{AK} the integral is printed as
 $v_d\,d!\,\lambda^{-(d-1)}$, which leads to the value $(2\pi e)^{-1}\approx 0.0585$ in the plane. For $d=2$ the bound
-$c(0+)\ge b_2$ also follows from the proof of a theorem of Carlsson \cite[Theorem~18]{Carlsson}. The larger value
-$e/(2\pi)$ of a note of Aldous \cite{Anote} does not follow from the exponential tilt; see \Cref{rem:note}.
+$c(0+)\ge b_2$ also follows from the proof of a theorem of Carlsson \cite[Theorem~18]{Carlsson}.
 
 The first moment of $Z_m(a)$ gives no more than $b_d$: by the Mecke equation $\E Z_m(a)$ is the Lebesgue measure of
 the set of $(x_1,\dots,x_m)$ with $\sum_i|x_i-x_{i-1}|\le am$, and by \cite[Corollary~8]{Carlsson}, in every dimension,
@@ -136,13 +135,6 @@ The bound $c(0+)\ge b_d$ is the argument of \cite[Section~3.3]{AK} given above. 
 $b_d\le c(0+)\le\beta_d$, from $b_d/\sqrt d\to(2\pi e)^{-1/2}$, and from Rhee's theorem
 $\beta_d/\sqrt d\to(2\pi e)^{-1/2}$ \cite{Rhee}.
 
-\begin{remark}\label{rem:note}
-There is $d_0$ such that $e(d-1)(v_d\,d!)^{-1/(d-1)}>\beta_d\ge c(0+)$ for all $d\ge d_0$. Indeed
-$(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so $e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2 b_d(1+O(\log d/d))$, whose
-ratio to $\sqrt d$ tends to $e^2(2\pi e)^{-1/2}>(2\pi e)^{-1/2}=\lim\beta_d/\sqrt d$; the estimates of
-$(v_d\,d!)^{1/d}$ and $b_d$ used here are derived in the proof of \Cref{cor:asym}.
-\end{remark}
-
 The theorem of Carlsson \cite[Theorem~18]{Carlsson} states that for each fixed $0<\delta<1$ the shortest cycle
 through $\lceil\delta g\rceil$ of $g$ independent uniform points in a region of unit area in the plane, divided by
 $\delta\sqrt g$, has $\liminf$ above $0.2935$ almost surely. Its proof gives the lower bound
@@ -158,7 +150,10 @@ tilt with $\lambda=1/a$, which gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$, equal to $(2
 plane. A note of Aldous \cite{Anote} replaces $e^{-1}$ by $e$ in (8) of \cite{AK}, which gives
 $e(d-1)(v_d\,d!)^{-1/(d-1)}$, equal to $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
 $c(0+)\ge e/(2\pi)$ does not follow from the exponential tilt, and for all large $d$ the expression of the note exceeds
-$\beta_d\ge c(0+)$ (\Cref{rem:note}). The note refers to Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM}, who
+$\beta_d\ge c(0+)$. Indeed $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
+$e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d(1+O(\log d/d))$, and $b_d/\sqrt d$ and $\beta_d/\sqrt d$ have the same limit
+$(2\pi e)^{-1/2}$, by the proof of \Cref{cor:asym} and by \cite{Rhee}; so the ratio of the expression of the note to
+$\beta_d$ tends to $e^2$. The note refers to Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM}, who
 analyse the generalized travelling salesman problem for uniform random points, in which a tour visits one point of
 each of several types. Such a tour is a cycle through as many points as there are types. It is at least as long as
 the shortest such cycle, so a lower bound for its length gives no lower bound for $c(\delta)$.
@@ -377,7 +372,7 @@ Hence $Pv\le\rho v$ with $\rho=N/10^{12}=0.819869595611<0.81987$.
 \end{proposition}
 
 \begin{proof}
-The vector $v$ is the file \texttt{code/final.v} of the repository named in the statement on code availability. Its SHA-256 digest is
+The vector $v$ is the file \texttt{code/final.v} of the repository named in the section on data and code availability. Its SHA-256 digest is
 \begin{center}\small\texttt{815642f24548ff606a9e4de4169c9ba723d9ff8018e287dad69b284e21b8cd5b}.\end{center}
 \noindent Its entries lie in the stated range, and
 the displayed inequality, between integers below $2^{126}$, holds at each of the $602{,}176$ states. The program
@@ -397,14 +392,6 @@ The inequality $b_2\,\rho^{-1/2}>0.32417$ is equivalent to $2>0.32417^2\,\pi e^2
 $e<2.718282$, the right side is less than $0.32417^2\cdot 3.141593\cdot 2.718282^2\cdot 0.819869595611<1.999998$, a
 product of rationals.
 \end{proof}
-
-\section*{Code availability}
-
-The programs and the vectors $v$ and $Mv$ are at tag \texttt{v1.0} of the repository
-\begin{center}\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound},\end{center}
-\noindent and the tag is archived on
-Zenodo together with this paper. The README there gives the commands that recompute $v$, $N$ and the checks of
-\Cref{prop:cert}.
 
 \section*{Acknowledgments and funding}
 
@@ -441,7 +428,8 @@ the checksums and the vectors $v$ and $Mv$ are in the folder \texttt{code} of th
 \begin{center}\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound}.\end{center}
 The program \texttt{cert.cpp} computes $v$ by power iteration and $Mv$ in $128$-bit integer arithmetic. The program
 \texttt{check.py} recomputes the weights $w_j$, the bounds $C_t$ and $Mv$ with different enclosures of $e^{-x}$, $\pi$
-and $\cos$, and checks the inequalities of \Cref{sec:computation} in integer arithmetic.
+and $\cos$, and checks the inequalities of \Cref{sec:computation} in integer arithmetic. The README there gives the
+commands that recompute $v$, $N$ and the checks of \Cref{prop:cert}.
 
 \appendix
 \section{Notation}\label{app:notation}
@@ -471,7 +459,6 @@ $W(\ell)$ & most points of $\Pi$ on a path of length at most $\ell$ & \Cref{sec:
 $q_m$ & probability of no bad triple among $m$ steps & \Cref{sec:intro}, \Cref{prop:block}\\
 $P$ & transfer operator, the non-negative matrix $M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
 $v$, $\rho$ & positive vector with $Pv\le\rho v$, and $N/10^{12}$ & \Cref{sec:intro}\\
-$d_0$ & threshold dimension in \Cref{rem:note} & \Cref{rem:note}\\
 $\mathbf{1}$ & indicator & \Cref{sec:first}\\
 $r_i$, $\sigma_i$ & length $|u_i|$, normalized surface measure & \Cref{sec:first}\\
 $B$ & length of a path through $m$ points & \Cref{sec:exchange}\\
