@@ -32,7 +32,7 @@ Givat Ram, Jerusalem, Israel}
 \begin{abstract}
 Let $T_m$ be the length of the shortest path from the origin through $m$ distinct points of a Poisson process of unit
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant $c(0+)>0$ and
-remarked that reasonable bounds on its value seem difficult to obtain. Their first moment argument gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball; in the plane $b_2=0.29352\dots$ also follows from a theorem of Carlsson. For every $a>b_d$ the
+remarked that reasonable bounds on its value seem difficult to obtain. Their first moment argument gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball; in the plane $b_2=0.29352\dots$ also follows from the proof of a theorem of Carlsson. For every $a>b_d$ the
 expected number of paths of length at most $am$ through $m$ points tends to infinity, so the first moment of the number of all such paths gives no more.
 With a theorem of Rhee,
 $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$. A shortest path cannot be shortened by exchanging two consecutive
@@ -81,8 +81,8 @@ $a<b_d$, where
 b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots .
 \]
 Hence $\Prob(T_m\le am)\to 0$ for every $a<b_d$, and (e) gives $c(0+)\ge b_d$. For $a\ge b_d$ the base is at least $1$
-for every $\lambda>0$. For $d=2$ the bound $c(0+)\ge b_2$ is also a consequence of a theorem of Carlsson
-\cite[Theorem~18]{Carlsson}. For each fixed $0<\delta<1$, the shortest cycle through $\lceil\delta k\rceil$ of $k$
+for every $\lambda>0$. For $d=2$ the bound $c(0+)\ge b_2$ also follows from the proof of a theorem of Carlsson
+\cite[Theorem~18]{Carlsson}. The theorem states that for each fixed $0<\delta<1$ the shortest cycle through $\lceil\delta k\rceil$ of $k$
 independent uniform points in a region of unit area in the plane, divided by $\delta\sqrt k$, has $\liminf$ above
 $0.2935$ almost surely. The proof gives the lower bound $\sqrt{2/(\pi e)}\,(1-\delta)^{(1-\delta)/(2\delta)}$, which
 is increasing in $\delta$ and tends to $b_2$ as $\delta\downarrow 0$. After scaling the region to area $k$ this is
@@ -103,8 +103,9 @@ each of several types. Such a tour is one of the cycles through as many of the p
 at least as long as the shortest of these cycles, so a lower bound for its length does not give a lower bound for
 $c(\delta)$.
 
-No count of all paths gives more than $b_d$: $\E Z_m(a)=(v_d\,d!)^m(am)^{dm}/(dm)!$, which tends to infinity for every
-$a>b_d$ (\Cref{thm:first}). In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$
+The first moment of $Z_m(a)$ gives no more than $b_d$: $\E Z_m(a)=(v_d\,d!)^m(am)^{dm}/(dm)!$, which tends to
+infinity for every $a>b_d$ (\Cref{thm:first}). This volume formula is \cite[Corollary~8]{Carlsson}, in every
+dimension, and \cite[Lemma~9]{Carlsson} is the first moment bound built on it. In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$
 with steps $u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the 2-opt move of Croes \cite{Croes} on two consecutive
 points, does not shorten the path, so the steps satisfy the exchange inequality
 \[
@@ -201,7 +202,8 @@ Let $(0=x_0,x_1,\dots,x_m)$ be a shortest path and $u_i=x_i-x_{i-1}$. For $1\le 
 \begin{proof}
 Replacing $(x_{i-1},x_i,x_{i+1},x_{i+2})$ by $(x_{i-1},x_{i+1},x_i,x_{i+2})$ keeps the set of points, both endpoints and
 all other steps, and changes the length of this stretch from $|u_i|+|u_{i+1}|+|u_{i+2}|$ to
-$|u_i+u_{i+1}|+|u_{i+1}|+|u_{i+1}+u_{i+2}|$.
+$|u_i+u_{i+1}|+|u_{i+1}|+|u_{i+1}+u_{i+2}|$. The path is shortest, so the first is at most the second, which is
+\eqref{eq:swap}.
 \end{proof}
 
 Call a triple of vectors $(u_1,u_2,u_3)$ \emph{bad} if it violates the exchange inequality, that is, if
@@ -394,7 +396,8 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
 and working under the author's direction; the agents also drafted the text. The problem, the limit theorem and the
 exponential tilt are due to Aldous and Krikun \cite{AK}, and the tilt is also used by Gou\'er\'e and Marchand
-\cite{GM}. The plane value $b_2$ also follows from the proof of a theorem of Carlsson \cite{Carlsson}. The exchange is
+\cite{GM}. The volume formula of \Cref{thm:first} is \cite[Corollary~8]{Carlsson}, and the plane value $b_2$ also
+follows from the proof of a theorem of Carlsson \cite{Carlsson}. The exchange is
 the 2-opt move of Croes \cite{Croes}, and the asymptotic upper bound is due to Rhee \cite{Rhee}. The author directed the work and is responsible for the content
 of the paper and for decisions concerning its dissemination.
 
