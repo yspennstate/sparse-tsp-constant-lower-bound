@@ -75,12 +75,12 @@ and their argument bounds $\E Z_m(a)$ by the exponential tilt
 \E Z_m(a)\le\Bigl(e^{\lambda a}\int_{\R^d}e^{-\lambda|u|}\,du\Bigr)^m
 =\bigl(e^{\lambda a}\,v_d\,d!\,\lambda^{-d}\bigr)^m,\qquad \lambda>0 .
 \]
-The base is smallest at $\lambda=d/a$, where it equals $v_d\,d!\,(ae/d)^d$, and this is less than $1$ exactly when
+The quantity $e^{\lambda a}\,v_d\,d!\,\lambda^{-d}$ inside the power is smallest at $\lambda=d/a$, where it equals $v_d\,d!\,(ae/d)^d$, and this is less than $1$ exactly when
 $a<b_d$, where
 \[
 b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots .
 \]
-Hence $\Prob(T_m\le am)\to 0$ for every $a<b_d$, and (e) gives $c(0+)\ge b_d$. For $a\ge b_d$ the base is at least $1$
+Hence $\Prob(T_m\le am)\to 0$ for every $a<b_d$, and (e) gives $c(0+)\ge b_d$. For $a\ge b_d$ this quantity is at least $1$
 for every $\lambda>0$. For $d=2$ the bound $c(0+)\ge b_2$ also follows from the proof of a theorem of Carlsson
 \cite[Theorem~18]{Carlsson}. The theorem states that for each fixed $0<\delta<1$ the shortest cycle through $\lceil\delta k\rceil$ of $k$
 independent uniform points in a region of unit area in the plane, divided by $\delta\sqrt k$, has $\liminf$ above
@@ -236,7 +236,7 @@ $\mathbf 1\{\sum|u_i|\le am\}\le e^{\lambda(am-\sum|u_i|)}$,
 \Prob(T_m\le am)\le\E Z^*_m(a)\le e^{\lambda am}\int\prod_{i=1}^m e^{-\lambda|u_i|}\,
 \mathbf 1\{\text{no bad triple}\}\,du=e^{\lambda am}(2\pi\lambda^{-2})^m q_m ,
 \]
-where the last step uses the scale invariance of badness. With $\lambda=2/a$ the base is $\pi e^2a^2/2$. If
+where the last step uses the scale invariance of badness. With $\lambda=2/a$ the factor $e^{\lambda a}\,2\pi\lambda^{-2}$ equals $\pi e^2a^2/2$. If
 $a<b_2\rho^{-1/2}$, choose $\varepsilon>0$ with $(\pi e^2a^2/2)(\rho+\varepsilon)<1$; then
 $q_m\le(\rho+\varepsilon)^m$ for all large $m$, the right side tends to $0$, and (e) gives $c(0+)\ge a$.
 \end{proof}
