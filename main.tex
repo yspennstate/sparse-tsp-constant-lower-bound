@@ -282,17 +282,17 @@ G(R_i,R_{i+1},\cos\varphi_i)+G(R_{i+2},R_{i+1},\cos\varphi_{i+1})<0,\qquad G(r,z
 For $|h|\le 1$ the function $G$ is non-increasing in $r\ge 0$ (it is $|(r,0)+z(h,\sqrt{1-h^2})|-r$, and the norm of
 $(r,0)+y$ grows at most at rate one in $r$), non-decreasing in $h$, and convex in $z$.
 
-\emph{Categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s]$.
+\emph{Length categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s]$.
 Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$, where $R$ has the Gamma$(2,1)$ law of the $R_i$, and put $w_n=Q-\sum_{j<n}w_j>0$. Angle bin
 $t\in\{0,\dots,A-1\}$ is $J_t=[2\pi t/A,2\pi(t+1)/A)$, and $C_t$ is an integer with $D\sup_{\varphi\in J_t}
-\cos\varphi\le C_t\le D$. On an enlarged probability space we attach to each $R_i$ a category $K_i\in\{0,\dots,n\}$, independent
+\cos\varphi\le C_t\le D$. On an enlarged probability space we attach to each $R_i$ a length category $K_i\in\{0,\dots,n\}$, independent
 across $i$, with $\Prob(K_i=j)=w_j/Q$ and $R_i\in I_j$ whenever $K_i=j<n$. This is possible because
 $w_j/Q\le\Prob(R\in I_j)$: when $R_i\in I_j$, an independent uniform variable gives $K_i=j$ with probability
 $w_j/(Q\,\Prob(R\in I_j))$ and $K_i=n$ otherwise, and $K_i=n$ when $R_i$ lies in no length bin. Let $t_i$ be the
 index of the angle bin of $\varphi_i$. By \Cref{lem:angles}, the $K_i$ and the $t_i$ are
 independent, with $\Prob(t_i=t)=1/A$.
 
-\emph{Forbidden cells.} A \emph{cell} is a quintuple $(a,b,c,t,u)$ of three categories and two angle bins. A
+\emph{Forbidden cells.} A \emph{cell} is a quintuple $(a,b,c,t,u)$ of three length categories and two angle bins. A
 cell with $a,b,c<n$ is \emph{forbidden} if, for both $z\in\{b,b+1\}$, the integers
 \[
 X=D(a^2+z^2)+2azC_t,\qquad Y=D(c^2+z^2)+2czC_u,\qquad L^2=D(a+c)^2
@@ -312,12 +312,12 @@ $z\in\{b,b+1\}$. At such an endpoint, multiplying by $\sqrt D$ shows that $G(a,z
 inequality $\sqrt X+\sqrt Y<L$.
 \end{proof}
 
-\emph{The transfer operator.} Let $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define the transfer operator $M$ on functions on
+\emph{The transfer operator.} Let $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define the integer operator $M$ on functions on
 $\mathcal S$ by
 \[
 (Mv)(b,c,u)=w_c\sum_{a=0}^{n}\sum_{t=0}^{A-1}H(a,b,c,t,u)\,v(a,b,t).
 \]
-Put $V_2(a,b,t)=w_aw_b$ and $P=M/(QA)$.
+Put $V_2(a,b,t)=w_aw_b$, and let $P=M/(QA)$ be the transfer operator.
 
 \begin{proposition}\label{prop:transfer}
 Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\rho>0$, $v>0$
@@ -350,13 +350,13 @@ $0\le 2\pi t'/A<\pi$. With a rational $\pi^-<\pi$ from Machin's formula $\pi=16\
 alternating series, $\cos(2\pi t'/A)\le\cos(2\pi^-t'/A)$, which is bounded above by the cosine series through degree
 $80$ plus the absolute value of the next term; $C_t$ is $D$ times this bound, rounded up. For every $t$, $|C_t|\le D$.
 
-\emph{The certificate.} The certificate is a positive integer vector $v$ on $\mathcal S$ for which the $602{,}176$
-inequalities below hold. The program \texttt{cert.cpp} finds it by power iteration in floating point. It then computes $Mv$ exactly in
-$128$-bit integer arithmetic (all integers involved are below $2^{126}$) and reports, writing $v_i$ for the value of $v$ at the state $i$, the least integer $N$ with
+\emph{The positive vector $v$.} Let $v$ be the positive integer vector on $\mathcal S$ given in the repository, and
+write $v_i$ for its value at the state $i$; then $29{,}785{,}462\le v_i\le 2^{40}+1$. With $N=819{,}869{,}595{,}611$,
 \[
-10^{12}\,(Mv)_i\le N\,Q\,A\,v_i\qquad\text{for all }i\in\mathcal S .
+10^{12}\,(Mv)_i\le N\,Q\,A\,v_i\qquad\text{for all }i\in\mathcal S ,
 \]
-The result is $N=819{,}869{,}595{,}611$, with $29{,}785{,}462\le v_i\le 2^{40}+1$. By
+an inequality between integers below $2^{126}$, and $N$ is the least integer for which it holds. Thus $Pv\le\rho v$
+with $\rho=N/10^{12}$. By
 \Cref{prop:transfer} with $\rho=N/10^{12}$,
 \[
 c(0+)\ge\frac{\sqrt{2/\pi}}{e}\sqrt{\frac{10^{12}}{N}}=0.3241702746\dots,
@@ -365,19 +365,6 @@ and the inequality $b_2\,\rho^{-1/2}>0.32417$ is equivalent to $2>0.32417^2\,\pi
 upper bounds for $\pi$ and $e$. The inequality $\sqrt X+\sqrt Y<L$ that defines a forbidden cell is decided in
 integers as $\Delta>0$ and $\Delta^2>4XY$ with $\Delta=L^2-X-Y$,
 which is equivalent to $\sqrt X+\sqrt Y<L$ because $(\sqrt X+\sqrt Y)^2=X+Y+2\sqrt{XY}$. Any positive $v$ for which the displayed inequalities hold proves the bound.
-
-\emph{Second verification.} A second program, \texttt{check.py}, verifies the inequalities $w_j\le Q\,\Prob(R\in I_j)$ and $D\sup_{J_t}\cos\le C_t$ with different enclosures: $e^{-x}$ by its alternating series, $\pi$ by
-Euler's formula $\pi=4\arctan\frac12+4\arctan\frac13$, and $\cos x=1-2\sin^2(x/2)$ with a lower bound for $\sin$. It
-then recomputes $Mv$ from $v$. The integers $X$ and $Y$ are below $2^{46}$ and
-$L=2^{15}(a+c)$, so $\sqrt X+\sqrt Y-L$ is computed in double precision with error below $10^{-8}$. For $z\ge 1$ a comparison with
-$|\sqrt X+\sqrt Y-L|<10^{-3}$ is decided in integers, in the form $L^2>X+Y$ and $(L^2+Y-X)^2>4L^2Y$. For $z=0$,
-$X=Da^2$, $Y=Dc^2$ and $\sqrt X+\sqrt Y=L$, so the strict inequality fails and no cell with $b=0$ is forbidden at
-$z=0$. Given $L^2>X+Y$, the second inequality is $L^2+Y-X>2L\sqrt Y$, that is, $X<(L-\sqrt Y)^2$, which
-is again $\sqrt X+\sqrt Y<L$. Each $v_i$ is written as $2^{20}h_i+l_i$ with $0\le l_i<2^{20}$ and $0\le h_i\le 2^{20}$. A sum of the $h_i$
-or of the $l_i$ over the pairs $(a,t)$ with $a<n$ has $96\cdot 64$ terms, is below $2^{33}$, and is exact in double
-precision.
-The result is compared with the saved $Mv$ entry by entry, and the $602{,}176$ inequalities and the final rational
-inequality are checked with exact integers.
 
 \section*{Acknowledgments and funding}
 
@@ -410,8 +397,11 @@ of the paper and for decisions concerning its dissemination.
 \section*{Data and code availability}
 
 The programs \texttt{grid.py}, \texttt{cert.cpp}, \texttt{check.py} and \texttt{first\_moment.py}, the grid file,
-the checksums and the vectors $v$ and $Mv$ of the certificate are in the folder \texttt{code} of the repository
+the checksums and the vectors $v$ and $Mv$ are in the folder \texttt{code} of the repository
 \begin{center}\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound}.\end{center}
+The program \texttt{cert.cpp} computes $v$ by power iteration and $Mv$ in $128$-bit integer arithmetic. The program
+\texttt{check.py} recomputes the weights $w_j$, the bounds $C_t$ and $Mv$ with different enclosures of $e^{-x}$, $\pi$
+and $\cos$, and checks the inequalities of \Cref{sec:computation} in exact integer arithmetic.
 
 \appendix
 \section{Notation}\label{app:notation}
@@ -459,8 +449,8 @@ $w_j$, $C_t$ & integer length weights, cosine bounds & \Cref{sec:transfer}\\
 $K_i$, $t_i$ & length category, index of the angle bin of $\varphi_i$ & \Cref{sec:transfer}\\
 $\mathcal S$ & state space & \Cref{sec:transfer}\\
 $V_2$ & initial vector, $V_2(a,b,t)=w_aw_b$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
-$P$ & non-negative matrix $M/(QA)$ & \Cref{sec:intro}\\
-$H$, $M$ & cell indicator, transfer operator & \Cref{sec:transfer}\\
+$P$ & transfer operator, the non-negative matrix $M/(QA)$ & \Cref{sec:intro}\\
+$H$, $M$ & cell indicator, integer operator $QAP$ & \Cref{sec:transfer}\\
 $E_m$ & no forbidden cell among $m$ steps & \Cref{prop:transfer}\\
 $\kappa$ & constant with $V_2\le\kappa v$ & \Cref{prop:transfer}\\
 $v$, $\rho$ & positive vector with $Pv\le\rho v$, its ratio & \Cref{sec:intro}\\
