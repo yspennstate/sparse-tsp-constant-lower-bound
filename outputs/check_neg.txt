@@ -1,0 +1,18 @@
+inputs ok: 96 length weights (least slack 0.00268 in units of 1/Q), 64 cosine bounds
+b=0 done
+b=16 done
+b=32 done
+b=48 done
+b=64 done
+b=80 done
+b=96 done
+ambiguous float comparisons redone exactly: 0
+image mismatches against the saved Mv: 0 of 602176
+Traceback (most recent call last):
+  File "check.py", line 160, in <module>
+    main()
+    ~~~~^^
+  File "check.py", line 149, in main
+    assert 10 ** 12 * Mv[i] <= N * QA * int(vf[i]), i
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 590292

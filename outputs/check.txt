@@ -1,0 +1,12 @@
+inputs ok: 96 length weights (least slack 0.00268 in units of 1/Q), 64 cosine bounds
+b=0 done
+b=16 done
+b=32 done
+b=48 done
+b=64 done
+b=80 done
+b=96 done
+ambiguous float comparisons redone exactly: 0
+image mismatches against the saved Mv: 0 of 602176
+all 602176 inequalities 10^12 (Mv)_i <= 819869595611 Q A v_i hold
+2 > 0.32417^2 pi e^2 rho holds; so c(0+) > 0.32417  (slack 3.389e-06)

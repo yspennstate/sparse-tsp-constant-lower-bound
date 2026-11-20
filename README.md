@@ -28,7 +28,7 @@ clang++ -O2 -std=c++17 cert.cpp -o cert
 python check.py grid.txt final 819869595611
 ```
 
-`check.py` also takes about a minute. To check the saved vectors without running `cert`,
+`check.py` takes about four minutes on a laptop; `outputs/check.txt` is its output, and `outputs/check_neg.txt` the control below. To check the saved vectors without running `cert`,
 verify them in `code/` with `sha256sum -c SHA256SUMS` and run the last command.
 
 Controls: `python check.py grid.txt final 819869595610` stops with an assertion at
