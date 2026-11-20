@@ -361,9 +361,10 @@ which is equivalent to $\sqrt X+\sqrt Y<L$ because $(\sqrt X+\sqrt Y)^2=X+Y+2\sq
 \emph{Second verification.} A second program, \texttt{check.py}, verifies the inequalities $w_j\le Q\,\Prob(R\in I_j)$ and $D\sup_{J_t}\cos\le C_t$ with different enclosures: $e^{-x}$ by its alternating series, $\pi$ by
 Euler's formula $\pi=4\arctan\frac12+4\arctan\frac13$, and $\cos x=1-2\sin^2(x/2)$ with a lower bound for $\sin$. It
 then recomputes $Mv$ from $v$. The integers $X$ and $Y$ are below $2^{46}$ and
-$L=2^{15}(a+c)$, so $\sqrt X+\sqrt Y-L$ is computed in double precision with error below $10^{-8}$. A comparison with
-$|\sqrt X+\sqrt Y-L|<10^{-3}$ is decided in integers, in the form $L^2>X+Y$ and $(L^2+Y-X)^2>4L^2Y$; for the grid
-above no comparison falls in this range. Given $L^2>X+Y$, the second inequality is $L^2+Y-X>2L\sqrt Y$, that is, $X<(L-\sqrt Y)^2$, which
+$L=2^{15}(a+c)$, so $\sqrt X+\sqrt Y-L$ is computed in double precision with error below $10^{-8}$. For $z\ge 1$ a comparison with
+$|\sqrt X+\sqrt Y-L|<10^{-3}$ is decided in integers, in the form $L^2>X+Y$ and $(L^2+Y-X)^2>4L^2Y$. For $z=0$,
+$X=Da^2$, $Y=Dc^2$ and $\sqrt X+\sqrt Y=L$, so the strict inequality fails and no cell with $b=0$ is forbidden at
+$z=0$. Given $L^2>X+Y$, the second inequality is $L^2+Y-X>2L\sqrt Y$, that is, $X<(L-\sqrt Y)^2$, which
 is again $\sqrt X+\sqrt Y<L$. Each $v_i$ is written as $2^{20}h_i+l_i$ with $0\le l_i<2^{20}$ and $0\le h_i\le 2^{20}$. A sum of the $h_i$
 or of the $l_i$ over the pairs $(a,t)$ with $a<n$ has $96\cdot 64$ terms, is below $2^{33}$, and is exact in double
 precision.
@@ -392,9 +393,9 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 
 The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
 and working under the author's direction; the agents also drafted the text. The problem, the limit theorem and the
-exponential tilt are due to Aldous and Krikun \cite{AK}; the tilt is also used by Gou\'er\'e and Marchand \cite{GM}, the
-plane value $b_2$ also follows from Carlsson \cite{Carlsson}, the exchange is the 2-opt move of Croes \cite{Croes}, and
-the asymptotic upper bound is due to Rhee \cite{Rhee}. The author directed the work and is responsible for the content
+exponential tilt are due to Aldous and Krikun \cite{AK}, and the tilt is also used by Gou\'er\'e and Marchand
+\cite{GM}. The plane value $b_2$ also follows from the proof of a theorem of Carlsson \cite{Carlsson}. The exchange is
+the 2-opt move of Croes \cite{Croes}, and the asymptotic upper bound is due to Rhee \cite{Rhee}. The author directed the work and is responsible for the content
 of the paper and for decisions concerning its dissemination.
 
 \section*{Data and code availability}
@@ -447,13 +448,14 @@ $S$ & tail $\Prob(R>x)=(1+x)e^{-x}$ of the step length & \Cref{sec:computation}\
 $\pi^-$ & rational lower bound for $\pi$ & \Cref{sec:computation}\\
 $w_j$, $C_t$ & integer length weights, cosine bounds & \Cref{sec:transfer}\\
 $K_i$, $t_i$ & length category, index of the angle bin of $\varphi_i$ & \Cref{sec:transfer}\\
-$\mathcal S$, $V_2$ & state space, initial vector & \Cref{sec:transfer}\\
+$\mathcal S$ & state space & \Cref{sec:transfer}\\
+$V_2$ & initial vector, $V_2(a,b,t)=w_aw_b$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
 $P$ & non-negative matrix $M/(QA)$ & \Cref{sec:intro}\\
 $H$, $M$ & cell indicator, transfer operator & \Cref{sec:transfer}\\
 $E_m$ & no forbidden cell among $m$ steps & \Cref{prop:transfer}\\
 $\kappa$ & constant with $V_2\le\kappa v$ & \Cref{prop:transfer}\\
 $v$, $\rho$ & positive vector with $Pv\le\rho v$, its ratio & \Cref{sec:intro}\\
-$N$ & the integer $10^{12}\rho$ & \Cref{thm:main}
+$N$ & the integer $10^{12}\rho$ & \Cref{sec:computation}
 \end{tabular}
 \end{center}
 
