@@ -73,40 +73,32 @@ Beardwood--Halton--Hammersley constant $\beta_d$ \cite{BHH}, so (b) gives $c(0+)
 $0.6277\le\beta_2\le 0.90367$, by Gaudio and Jaillet \cite{GJ} and by a computer-assisted argument of Gaudio and
 Guan \cite{GG}.
 
-The known lower bounds for $c(0+)$ are first moment bounds. For $a>0$ let $Z_m(a)$ be the number of ordered
-$m$-tuples of distinct points $x_1,\dots,x_m$ of $\Pi$ with $\sum_{i=1}^m|x_i-x_{i-1}|\le am$, where $x_0=0$, so that
-$\Prob(T_m\le am)\le\E Z_m(a)$. Aldous and Krikun \cite[Section~3.3]{AK} compare $T_m$ with a branching random walk,
-and their argument bounds $\E Z_m(a)$ by the exponential tilt
+For $a>0$ let $Z_m(a)$ be the number of ordered $m$-tuples of distinct points $x_1,\dots,x_m$ of $\Pi$ with
+$\sum_{i=1}^m|x_i-x_{i-1}|\le am$, where $x_0=0$, so that $\Prob(T_m\le am)\le\E Z_m(a)$. Aldous and Krikun
+\cite[Section~3.3]{AK} compare $T_m$ with a branching random walk, and their argument bounds $\E Z_m(a)$ by the
+exponential tilt
 \[
 \E Z_m(a)\le\Bigl(e^{\lambda a}\int_{\R^d}e^{-\lambda|u|}\,du\Bigr)^m
 =\bigl(e^{\lambda a}\,v_d\,d!\,\lambda^{-d}\bigr)^m,\qquad \lambda>0 .
 \]
-At $\lambda=d/a$ the right-hand side is $\bigl(v_d\,d!\,(ae/d)^d\bigr)^m$, which tends to $0$ exactly when $a<b_d$,
-where
+The right-hand side is smallest at $\lambda=d/a$, where it equals $\bigl(v_d\,d!\,(ae/d)^d\bigr)^m$, and this tends to
+$0$ exactly when $a<b_d$, where
 \[
-b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots,
+b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots.
 \]
-and \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. Other values for the plane are in print. In \cite[Section~3.3]{AK}
-the integral is printed as $v_d\,d!\,\lambda^{-(d-1)}$, which leads to $(2\pi e)^{-1}\approx 0.0585$. The proof of
-\cite[Lemma~2.1]{GM}, for the continuous greedy paths model of Gou\'er\'e and Marchand with all weights equal to one,
-uses the tilt with $\lambda=1/a$ and gives $(2\pi e)^{-1/2}\approx 0.2420$. Arias-Castro, Donoho, Huo and Tovey
-\cite[Theorem~1]{ADHT} prove that, for each $\gamma>0$, among $g$ independent uniform points in the unit square the
-largest number on one curve of length at most $\gamma$ lies between $\gamma\sqrt g/5$ and $17\gamma\sqrt g$ with
-probability tending to one as $g\to\infty$; after scaling,
-the upper bound gives $c(0+)\ge 1/17\approx 0.0588$. The proof of a theorem of Carlsson \cite[Theorem~18]{Carlsson}
-gives $c(0+)\ge b_2$ again. A note of Aldous \cite{Anote} replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, which gives
-$e(d-1)(v_d\,d!)^{-1/(d-1)}$, equal to $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
-$c(0+)\ge e/(2\pi)$ does not follow from the exponential tilt.
-
-The first moment of $Z_m(a)$ gives no more than $b_d$: by the Mecke equation $\E Z_m(a)$ is the Lebesgue measure of
-the set of $(x_1,\dots,x_m)$ with $\sum_i|x_i-x_{i-1}|\le am$, and by \cite[Corollary~8]{Carlsson}, in every dimension,
+Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$; in the plane the proof of \cite[Theorem~18]{Carlsson} gives the
+same value. No first moment of $Z_m(a)$ gives more: by \cite[Corollary~8]{Carlsson}, in every dimension,
 \[
 \E Z_m(a)=\frac{(v_d\,d!)^m(am)^{dm}}{(dm)!},
 \]
 which tends to infinity for every $a>b_d$ (\Cref{thm:first}); \cite[Lemma~9]{Carlsson} is the first moment bound
-built on this formula. In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$ with
-steps $u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the 2-opt move of Croes \cite{Croes} on two consecutive
-points, does not shorten the path, so the steps satisfy the exchange inequality
+built on this formula. In particular the value $e(d-1)(v_d\,d!)^{-1/(d-1)}$ of
+the note \cite{Anote}, obtained by replacing $e^{-1}$ by $e$ in \cite[(3.6)]{AK} and equal to $e/(2\pi)\approx0.4326$
+in the plane, exceeds $b_d$ and does not follow from the tilt; its ratio to $b_d$ tends to $e^2$, while $b_d$ and
+$\beta_d$ are both asymptotic to $\sqrt{d/(2\pi e)}$ (\Cref{cor:asym} and \cite{Rhee}), so for all large $d$ it exceeds
+$\beta_d\ge c(0+)$. In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$ with steps
+$u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the 2-opt move of Croes \cite{Croes} on two consecutive points,
+does not shorten the path, so the steps satisfy the exchange inequality
 \[
 |u_i|+|u_{i+2}|\le|u_i+u_{i+1}|+|u_{i+1}+u_{i+2}|,\qquad 1\le i\le m-2
 \]
@@ -141,7 +133,7 @@ For $d=2$, $c(0+)\ge b_2\,\rho^{-1/2}=0.324170\dots$ with $\rho=0.819869595611$,
 $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$.
 \end{corollary}
 
-The bound $c(0+)\ge b_d$ is the argument of \cite[Section~3.3]{AK} given above. The corollary follows from
+The corollary follows from
 $b_d\le c(0+)\le\beta_d$, from $b_d/\sqrt d\to(2\pi e)^{-1/2}$, and from Rhee's theorem
 $\beta_d/\sqrt d\to(2\pi e)^{-1/2}$ \cite{Rhee}.
 
@@ -150,14 +142,19 @@ through $\lceil\delta g\rceil$ of $g$ independent uniform points in a region of 
 $\delta\sqrt g$, has $\liminf$ above $0.2935$ almost surely. Its proof gives the lower bound
 $\sqrt{2/(\pi e)}\,(1-\delta)^{(1-\delta)/(2\delta)}$, which is increasing in $\delta$ and tends to $b_2$ as
 $\delta\downarrow 0$. After scaling the region to area $g$ this is $c(\delta)\ge b_2$ for $0<\delta<1$, and (b) gives
-$c(0+)\ge b_2$.
+$c(0+)\ge b_2$. In \cite[Section~3.3]{AK} the integral of the tilt is printed as $v_d\,d!\,\lambda^{-(d-1)}$, which
+leads to $(2\pi e)^{-1}\approx 0.0585$ in the plane.
 
 In the continuous greedy paths model of Gou\'er\'e and Marchand \cite{GM} with all weights equal to one, let
 $W(\ell)$ be the largest number of points of $\Pi$ on a path of length at most $\ell$ starting at the origin. Then
 $W(\ell)\ge m$ exactly when $T_m\le\ell$, so by \cite[Theorem~1(e)]{AK} $W(\ell)/\ell\to 1/c(0+)$ in probability as
-$\ell\to\infty$. A path of length $\ell$ from the origin stays in a square of side $2\ell$, so \cite[Theorem~1]{ADHT}
-gives $W(\ell)\le 17\ell$ with probability tending to one, which is the bound $c(0+)\ge1/17$ above. The proof of
-\cite[Lemma~2.1]{GM} gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$ in every dimension. For all large $d$ the expression of the
+$\ell\to\infty$. Arias-Castro, Donoho, Huo and Tovey \cite[Theorem~1]{ADHT} prove that, for each $\gamma>0$, among
+$g$ independent uniform points in the unit square the largest number on one curve of length at most $\gamma$ is at
+most $17\gamma\sqrt g$ with probability tending to one. A path of length $\ell$ from the origin stays in a square of
+side $2\ell$, which holds at most $4(1+\varepsilon)\ell^2$ points of $\Pi$ with probability tending to one, for each
+$\varepsilon>0$; so $W(\ell)\le 17\sqrt{1+\varepsilon}\,\ell$ with probability tending to one, and $c(0+)\ge1/17$. The
+proof of \cite[Lemma~2.1]{GM}, which uses the tilt with $\lambda=1/a$, gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$ in every
+dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. For all large $d$ the expression of the
 note \cite{Anote} exceeds $\beta_d\ge c(0+)$. Indeed $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
 $e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d(1+O(\log d/d))$, and $b_d/\sqrt d$ and $\beta_d/\sqrt d$ have the same limit
 $(2\pi e)^{-1/2}$, by the proof of \Cref{cor:asym} and by \cite{Rhee}; so the ratio of the expression of the note to
@@ -202,7 +199,8 @@ $\frac1m\log\E Z_m(a)\to\log\bigl(v_d\,d!\,(ae/d)^d\bigr)$, which is negative fo
 \end{proof}
 
 \begin{proof}[Proof of \Cref{cor:asym}]
-The bound $c(0+)\ge b_d$ is derived in \Cref{sec:intro}; it remains to find $b_d$ for large $d$. As $d\to\infty$, Stirling's formula gives $\log v_d=\frac d2\log\frac{2\pi e}{d}-\frac12\log(\pi d)+o(1)$ and
+By \Cref{thm:first} and Markov's inequality, $\Prob(T_m\le am)\to 0$ for $a<b_d$, so \cite[Theorem~1(e)]{AK} gives
+$c(0+)\ge b_d$. As $d\to\infty$, Stirling's formula gives $\log v_d=\frac d2\log\frac{2\pi e}{d}-\frac12\log(\pi d)+o(1)$ and
 $\log d!=d\log\frac de+\frac12\log(2\pi d)+o(1)$, so, with absolute implied constants, $(v_d\,d!)^{1/d}=\sqrt{2\pi d/e}\,(1+O(\log d/d))$. Hence
 $b_d=\sqrt{d/(2\pi e)}\,(1+O(\log d/d))$, and with $c(0+)\ge b_d$, $c(0+)\le\beta_d$ and \cite{Rhee} the limit
 follows.
@@ -388,10 +386,8 @@ availability. The SHA-256 digests of \texttt{code/final.v} and \texttt{code/grid
 \texttt{ab7361f64d1cb2470911d9467b515c9c6178451159984765cbde8125e083f2f1}.\end{center}
 \noindent The entries of $v$ lie in the stated range, and the displayed inequality, between integers below $2^{126}$,
 holds at each of the $602{,}176$ states. The program \texttt{code/cert.cpp} computes $Mv$ from $v$ in $128$-bit
-integer arithmetic, with every forbidden cell decided in integers as above. The program \texttt{code/check.py} checks
-the integers $w_j$ and $C_t$ against independent enclosures, recomputes $Mv$ independently, obtains the same vector,
-and checks the inequality. The integer $N$ is the least one for which the inequality holds. Any positive $v$ for
-which the inequality holds proves the bound. Dividing by $10^{12}QA$ gives $Pv\le\rho v$.
+integer arithmetic, with every forbidden cell decided in integers as above. The integer $N$ is the least one for
+which the inequality holds. Dividing by $10^{12}QA$ gives $Pv\le\rho v$.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thm:main}]
