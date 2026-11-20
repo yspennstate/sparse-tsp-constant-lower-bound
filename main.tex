@@ -38,9 +38,9 @@ moment argument of Aldous and Krikun gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$,
 ball; in the plane $b_2=0.29352\dots$ also follows from the proof of a theorem of Carlsson. For every $a>b_d$ the
 expected number of paths of length at most $am$ through $m$ points tends to infinity, so the first moment of the number
 of all such paths gives no more. With a theorem of Rhee, $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$. A shortest
-path cannot be shortened by exchanging two consecutive points. We count only the paths with this property and bound
-their number by the powers of a non-negative transfer operator $P$ with $Pv\le 0.81987\,v$ for a positive integer
-vector $v$.
+path cannot be shortened by exchanging two consecutive points. We count only the paths with this property; their
+expected number is bounded through the powers of a non-negative transfer operator $P$ with $Pv\le 0.81987\,v$ for a
+positive integer vector $v$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -206,7 +206,8 @@ From now on $d=2$. A shortest path exists almost surely: if some path through $m
 of length at most $B$ uses points in the ball of radius $B$ about the origin, of which there are finitely many.
 
 \begin{lemma}\label{lem:swap}
-Let $(0=x_0,x_1,\dots,x_m)$ be a shortest path and $u_i=x_i-x_{i-1}$. For $1\le i\le m-2$,
+Let $(0=x_0,x_1,\dots,x_m)$ be a path from the origin through $m$ distinct points of $\Pi$ of length $T_m$, and
+$u_i=x_i-x_{i-1}$. For $1\le i\le m-2$,
 \begin{equation}\label{eq:swap}
 |u_i|+|u_{i+2}|\le|u_i+u_{i+1}|+|u_{i+1}+u_{i+2}|.
 \end{equation}
@@ -289,7 +290,7 @@ G(R_i,R_{i+1},\cos\varphi_i)+G(R_{i+2},R_{i+1},\cos\varphi_{i+1})<0,\qquad G(r,z
 For $|h|\le 1$ the function $G$ is non-increasing in $r\ge 0$ (it is $|(r,0)+y|-r$ with $y=z(h,\sqrt{1-h^2})$, and
 $\bigl||(r',0)+y|-|(r,0)+y|\bigr|\le|r'-r|$), non-decreasing in $h$, and convex in $z$.
 
-\emph{Length categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s]$.
+\emph{Length categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s)$.
 Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$, where $R$ has the Gamma$(2,1)$ law of the $R_i$, and put $w_n=Q-\sum_{j<n}w_j>0$. Angle bin
 $t\in\{0,\dots,A-1\}$ is $J_t=[2\pi t/A,2\pi(t+1)/A)$, and $C_t$ is an integer with $D\sup_{\varphi\in J_t}
 \cos\varphi\le C_t\le D$. On an enlarged probability space we attach to each $R_i$ a length category $K_i\in\{0,\dots,n\}$, independent
@@ -312,7 +313,7 @@ If $(K_i,K_{i+1},K_{i+2},t_i,t_{i+1})$ is a forbidden cell, then $(U_i,U_{i+1},U
 \end{lemma}
 
 \begin{proof}
-Write $(j,k,l,t,\tau)$ for this cell. Both sides of \eqref{eq:bad} are homogeneous, so we may multiply all lengths by $s$; then $sR_i\in[j,j+1]$,
+Write $(j,k,l,t,\tau)$ for this cell. The left side of \eqref{eq:bad} is homogeneous of degree one in the lengths, so we may multiply all lengths by $s$; then $sR_i\in[j,j+1]$,
 $sR_{i+1}\in[k,k+1]$ and $sR_{i+2}\in[l,l+1]$. By the monotonicity of $G$, since $-1\le\cos\varphi_i\le C_t/D\le 1$ and $-1\le\cos\varphi_{i+1}\le C_\tau/D\le 1$, the left side of \eqref{eq:bad} is at most
 $G(j,z,C_t/D)+G(l,z,C_\tau/D)$ with $z=sR_{i+1}$, and this is convex in $z$, so it is at most its larger value at
 $z\in\{k,k+1\}$. At such an endpoint, multiplying by $\sqrt D$ shows that $G(j,z,C_t/D)+G(l,z,C_\tau/D)<0$ is the
@@ -363,7 +364,8 @@ in integers as $\Delta>0$ and $\Delta^2>4XY$ with $\Delta=\Lambda^2-X-Y$, which 
 $(\sqrt X+\sqrt Y)^2=X+Y+2\sqrt{XY}$.
 
 \begin{proposition}\label{prop:cert}
-With these parameters and $N=819{,}869{,}595{,}611$ there is a positive integer vector $v$ on $\mathcal S$ with
+With these parameters, the integers $w_j$ and $C_t$ of the file \texttt{code/grid.txt}, and
+$N=819{,}869{,}595{,}611$, there is a positive integer vector $v$ on $\mathcal S$ with
 $29{,}785{,}462\le v(\eta)\le 2^{40}+1$ and
 \[
 10^{12}\,(Mv)(\eta)\le N\,Q\,A\,v(\eta)\qquad\text{for all }\eta\in\mathcal S .
@@ -372,16 +374,17 @@ Hence $Pv\le\rho v$ with $\rho=N/10^{12}=0.819869595611<0.81987$.
 \end{proposition}
 
 \begin{proof}
-The vector $v$ is the file \texttt{code/final.v} of the repository named in the section on data and code availability. Its SHA-256 digest is
-\begin{center}\small\texttt{815642f24548ff606a9e4de4169c9ba723d9ff8018e287dad69b284e21b8cd5b}.\end{center}
-\noindent Its entries lie in the stated range, and
-the displayed inequality, between integers below $2^{126}$, holds at each of the $602{,}176$ states. The program
-\texttt{code/check.py} of the same repository checks the integers $w_j$ and $C_t$ against independent enclosures,
-recomputes $Mv$ from $v$, deciding every comparison near a tie exactly in integers, and checks the inequality. The integer $N$ is the
-least one for which the inequality holds. Dividing by $10^{12}QA$ gives $Pv\le\rho v$.
+The vector $v$ is the file \texttt{code/final.v} of the repository named in the section on data and code
+availability. The SHA-256 digests of \texttt{code/final.v} and \texttt{code/grid.txt} are
+\begin{center}\small\texttt{815642f24548ff606a9e4de4169c9ba723d9ff8018e287dad69b284e21b8cd5b},\\
+\texttt{ab7361f64d1cb2470911d9467b515c9c6178451159984765cbde8125e083f2f1}.\end{center}
+\noindent The entries of $v$ lie in the stated range, and the displayed inequality, between integers below $2^{126}$,
+holds at each of the $602{,}176$ states. The program \texttt{code/cert.cpp} computes $Mv$ from $v$ in $128$-bit
+integer arithmetic, with every forbidden cell decided in integers as above. The program \texttt{code/check.py} checks
+the integers $w_j$ and $C_t$ against independent enclosures, recomputes $Mv$ independently, obtains the same vector,
+and checks the inequality. The integer $N$ is the least one for which the inequality holds. Any positive $v$ for
+which the inequality holds proves the bound. Dividing by $10^{12}QA$ gives $Pv\le\rho v$.
 \end{proof}
-
-Any positive $v$ for which the inequality of \Cref{prop:cert} holds proves the bound.
 
 \begin{proof}[Proof of \Cref{thm:main}]
 By \Cref{prop:transfer} and \Cref{prop:cert},
