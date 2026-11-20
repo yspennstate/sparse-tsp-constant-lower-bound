@@ -32,9 +32,8 @@ Givat Ram, Jerusalem, Israel}
 \begin{abstract}
 Let $T_m$ be the length of the shortest path from the origin through $m$ distinct points of a Poisson process of unit
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant $c(0+)>0$ and
-remarked that reasonable bounds on its value seem difficult to obtain. Their exponential tilt of the expected number of
-short paths gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball; in the plane $b_2=0.29352\dots$ also follows from a theorem of Carlsson. For every $a>b_d$ the
-expected number of paths of length at most $am$ through $m$ points tends to infinity, so the first moment gives no more.
+remarked that reasonable bounds on its value seem difficult to obtain. Their first moment argument gives $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball; in the plane $b_2=0.29352\dots$ also follows from a theorem of Carlsson. For every $a>b_d$ the
+expected number of paths of length at most $am$ through $m$ points tends to infinity, so the first moment of the number of all such paths gives no more.
 With a theorem of Rhee,
 $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$. A shortest path cannot be shortened by exchanging two consecutive
 points. Counting only the paths with this property, and bounding their number by a transfer operator and a positive
@@ -89,19 +88,20 @@ $0.2935$ almost surely. The proof gives the lower bound $\sqrt{2/(\pi e)}\,(1-\d
 is increasing in $\delta$ and tends to $b_2$ as $\delta\downarrow 0$. After scaling the region to area $k$ this is
 $c(\delta)\ge b_2$ for $0<\delta<1$, and (b) gives $c(0+)\ge b_2$.
 
-Three other values are in the literature. In \cite{AK} the integral is printed as
-$v_d\,\Gamma(d+1)\lambda^{-(d-1)}$, which leads to the value $(2\pi e)^{-1}\approx 0.0585$ in the plane. In the
+Three other values are in the literature. In \cite{AK} the integral $\int_{\R^d}e^{-\lambda|u|}\,du$ is printed as
+$v_d\,d!\lambda^{-(d-1)}$, which leads to the value $(2\pi e)^{-1}\approx 0.0585$ in the plane. In the
 continuous greedy paths model of Gou\'er\'e and Marchand \cite{GM} with all weights equal to one, let $W(\ell)$ be the
 largest number of points of $\Pi$ on a path of length at most $\ell$ starting at the origin. Then $W(\ell)\ge m$
 exactly when $T_m\le\ell$, so by (e) $W(\ell)/\ell\to 1/c(0+)$ in probability as $\ell\to\infty$. The proof of
 \cite[Lemma~2.1]{GM} uses the exponential tilt with $\lambda=1/a$, which gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$, equal to
 $(2\pi e)^{-1/2}\approx 0.2420$ in the plane. A note of Aldous \cite{Anote} replaces the value of \cite{AK} by
-$e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
+$e(d-1)(v_d\,d!)^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. Since $e/(2\pi)>b_2$, the bound
 $c(0+)\ge e/(2\pi)$ does not follow from the exponential tilt. For all large $d$ the expression of the note exceeds
 $\beta_d\ge c(0+)$ (\Cref{cor:asym}). The note refers to Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM}, who
 analyse the generalized travelling salesman problem for uniform random points, in which a tour visits one point of
-each of several types. Such a tour passes through a subset of the points, so a lower bound for its length is not a
-lower bound for $c(\delta)$.
+each of several types. Such a tour is one of the cycles through as many of the points as there are types, and it is
+at least as long as the shortest of these cycles, so a lower bound for its length does not give a lower bound for
+$c(\delta)$.
 
 No count of all paths gives more than $b_d$: $\E Z_m(a)=(v_d\,d!)^m(am)^{dm}/(dm)!$, which tends to infinity for every
 $a>b_d$ (\Cref{thm:first}). In the plane we count fewer paths. Let $(0=x_0,x_1,\dots,x_m)$ be a path of length $T_m$
@@ -135,12 +135,12 @@ Consequently, as $m\to\infty$, $\E Z_m(a)\to 0$ if $a<b_d$ and $\E Z_m(a)\to\inf
 \end{theorem}
 
 \begin{theorem}\label{thm:main}
-For $d=2$, $c(0+)\ge b_2\,(10^{12}/N)^{1/2}=0.324170\dots$ with $N=819{,}869{,}595{,}611$, so $c(0+)>0.32417$.
+For $d=2$, $c(0+)\ge b_2\,\rho^{-1/2}=0.324170\dots$ with $\rho=0.819869595611$, so $c(0+)>0.32417$.
 \end{theorem}
 
 \begin{corollary}\label{cor:asym}
 For every $d\ge 2$, $c(0+)\ge b_d$, and $c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$. Moreover
-there is $d_0$ such that $e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}>\beta_d\ge c(0+)$ for all $d\ge d_0$.
+there is $d_0$ such that $e(d-1)(v_d\,d!)^{-1/(d-1)}>\beta_d\ge c(0+)$ for all $d\ge d_0$.
 \end{corollary}
 
 The bound $c(0+)\ge b_d$ is the argument of \cite[Section~3.3]{AK}. In the limit,
@@ -150,8 +150,8 @@ bound is $c(0+)\ge b_d$.
 Aldous gave a construction showing $c(0+)\le 0.607$ for $d=2$, rigorous up to the sampling error of a Monte Carlo
 estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value of $c(0+)$ in $d=2$ by Monte Carlo
 methods, and \cite[Section~2.1]{AK} remarks that reasonable bounds on it seem difficult to obtain. Blanchard,
-Jacquillat and Jaillet \cite{BJJ} give the order of growth, up to constant factors, of the shortest path through $k$
-of $n$ random points for all $k\le n$. Verges \cite{Verges} studies concentration and large deviations for the
+Jacquillat and Jaillet \cite{BJJ} give the order of growth, up to constant factors, of the shortest path through a given
+number of the points of a uniform sample, for every such number. Verges \cite{Verges} studies concentration and large deviations for the
 continuous greedy paths model of \cite{GM}.
 
 \Cref{sec:first} proves \Cref{thm:first} and \Cref{cor:asym}. \Cref{sec:exchange} proves the exchange inequality and
@@ -181,8 +181,8 @@ If $c(0+)<b_d$, choose $c(0+)<a<b_d$; then $\Prob(T_m\le am)\to 1$ by (e), while
 $\Prob(T_m\le am)\le\E Z_m(a)\to 0$ by \Cref{thm:first}. So $c(0+)\ge b_d$. As $d\to\infty$, Stirling's formula gives $\log v_d=\frac d2\log\frac{2\pi e}{d}-\frac12\log(\pi d)+o(1)$ and
 $\log d!=d\log\frac de+\frac12\log(2\pi d)+o(1)$, so, with absolute implied constants, $(v_d\,d!)^{1/d}=\sqrt{2\pi d/e}\,(1+O(\log d/d))$. Hence
 $b_d=\sqrt{d/(2\pi e)}\,(1+O(\log d/d))$, and with $c(0+)\ge b_d$, $c(0+)\le\beta_d$ and \cite{Rhee} the limit
-follows. For the second statement, $(v_d\,\Gamma(d+1))^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
-$e(d-1)(v_d\,\Gamma(d+1))^{-1/(d-1)}=e^2 b_d(1+O(\log d/d))$, whose ratio to $\sqrt d$ tends to
+follows. For the second statement, $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
+$e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2 b_d(1+O(\log d/d))$, whose ratio to $\sqrt d$ tends to
 $e^2(2\pi e)^{-1/2}>(2\pi e)^{-1/2}=\lim\beta_d/\sqrt d$.
 \end{proof}
 
@@ -199,8 +199,8 @@ Let $(0=x_0,x_1,\dots,x_m)$ be a shortest path and $u_i=x_i-x_{i-1}$. For $1\le 
 \end{lemma}
 
 \begin{proof}
-Replacing $(x_{i-1},x_i,x_{i+1},x_{i+2})$ by $(x_{i-1},x_{i+1},x_i,x_{i+2})$ keeps the vertex set, both endpoints and
-all other edges, and changes the length of this stretch from $|u_i|+|u_{i+1}|+|u_{i+2}|$ to
+Replacing $(x_{i-1},x_i,x_{i+1},x_{i+2})$ by $(x_{i-1},x_{i+1},x_i,x_{i+2})$ keeps the set of points, both endpoints and
+all other steps, and changes the length of this stretch from $|u_i|+|u_{i+1}|+|u_{i+2}|$ to
 $|u_i+u_{i+1}|+|u_{i+1}|+|u_{i+1}+u_{i+2}|$.
 \end{proof}
 
@@ -313,8 +313,8 @@ Put $V_2(a,b,t)=w_aw_b$ and $P=M/(QA)$.
 
 \begin{proposition}\label{prop:transfer}
 Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\rho>0$, $v>0$
-on $\mathcal S$ and $Pv\le\rho v$ coordinatewise, then $q_m\le C\rho^{m-2}$ for a constant $C$ that depends on $v$ and on
-the parameters $n,s,A,Q,D$ but not on $m$, and $c(0+)\ge b_2\,\rho^{-1/2}$.
+on $\mathcal S$ and $Pv\le\rho v$ coordinatewise, then $q_m\le C\rho^{m-2}$ for a constant $C$ that does not depend
+on $m$, and $c(0+)\ge b_2\,\rho^{-1/2}$.
 \end{proposition}
 
 \begin{proof}
@@ -344,7 +344,7 @@ $80$ plus the absolute value of the next term; $C_t$ is $D$ times this bound, ro
 
 \emph{The certificate.} The certificate is a positive integer vector $v$ on $\mathcal S$ for which the $602{,}176$
 inequalities below hold. The program \texttt{cert.cpp} finds it by power iteration in floating point. It then computes $Mv$ exactly in
-$128$-bit integer arithmetic (all integers involved are below $2^{126}$) and reports the least integer $N$ with
+$128$-bit integer arithmetic (all integers involved are below $2^{126}$) and reports, writing $v_i$ for the value of $v$ at the state $i$, the least integer $N$ with
 \[
 10^{12}\,(Mv)_i\le N\,Q\,A\,v_i\qquad\text{for all }i\in\mathcal S .
 \]
@@ -399,7 +399,7 @@ of the paper and for decisions concerning its dissemination.
 
 \section*{Data and code availability}
 
-The programs \texttt{grid.py}, \texttt{cert.cpp}, \texttt{check.py} and \texttt{first\_moment.py}, the grid file and
+The programs \texttt{grid.py}, \texttt{cert.cpp}, \texttt{check.py} and \texttt{first\_moment.py}, the grid file,
 the checksums and the vectors $v$ and $Mv$ of the certificate are in the folder \texttt{code} of the repository
 \begin{center}\url{https://github.com/yspennstate/sparse-tsp-constant-lower-bound}.\end{center}
 
@@ -438,7 +438,7 @@ $F$ & event on which a triple is bad & \Cref{prop:hand}\\
 $R_i$, $\varphi_i$ & step length, angle between consecutive steps & \Cref{sec:transfer}\\
 $\theta_i$ & direction of the step $U_i$ & \Cref{sec:transfer}\\
 $I_j$, $J_t$ & length bin, angle bin & \Cref{sec:transfer}\\
-$X$, $Y$, $L^2$ & integer squared lengths of a forbidden cell & \Cref{sec:transfer}\\
+$X$, $Y$, $L^2$ & integer squared lengths of a cell & \Cref{sec:transfer}\\
 $G(r,z,h)$ & $\sqrt{r^2+z^2+2rzh}-r$ & \eqref{eq:bad}\\
 $n,s,A,Q,D$ & grid parameters & \Cref{sec:transfer}\\
 $S^\pm$ & rational bounds for $S$ & \Cref{sec:computation}\\
