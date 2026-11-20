@@ -24,7 +24,7 @@ The vectors `final.v` (7.1 MB) and `final.Mv` (13.9 MB), one integer per line in
 cd code
 python grid.py                       # rewrites grid.txt; compare with SHA256SUMS
 clang++ -O2 -std=c++17 cert.cpp -o cert
-./cert grid.txt final 400            # about a minute on a Mac mini; prints N 819869595611
+./cert grid.txt final 400            # prints N 819869595611
 python check.py grid.txt final 819869595611
 ```
 

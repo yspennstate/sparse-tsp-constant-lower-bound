@@ -2,9 +2,9 @@
 
 1. Inputs.  Re-verifies grid.txt with enclosures that share nothing with grid.py: exp(-x) by its alternating
    series, pi by Euler's formula pi = 4 arctan(1/2) + 4 arctan(1/3), and cos x = 1 - 2 sin^2(x/2) with a lower
-   bound for sin.  Checks 0 <= w_j <= Q P(R in bin j), wildcard = Q - sum w_j > 0, and C_t >= D max cos on bin t.
-2. Image.  Recomputes Mv from v without the threshold structure used in cert.cpp: for every ordinary cell the
-   swap test is decided in floating point, every comparison closer than 1e-3 to a tie is redone exactly in
+   bound for sin.  Checks 0 <= w_j <= Q P(R in length bin j), w_n = Q - sum_{j<n} w_j > 0 (the weight of category n), and C_t >= D max cos on angle bin t.
+2. Image.  Recomputes Mv from v without the threshold structure used in cert.cpp: for every cell with a, b, c < n the
+   exchange inequality is decided in floating point, every comparison closer than 1e-3 to a tie is redone exactly in
    integers in the form  L^2 > X + Y  and  (L^2 + Y - X)^2 > 4 L^2 Y,  and the sums over (a, t) are matrix-vector
    products on 20-bit halves of v (exact in float64).  The result must equal the saved Mv entry by entry.
 3. Inequality.  10^12 (Mv)_i <= N Q A v_i for every state i, with Python integers.
@@ -75,7 +75,7 @@ def check_inputs(n, s, A, Q, D, w, wstar, C):
         assert sl >= 0
         cos_hi = 1 - 2 * sl * sl
         assert C[t] >= D * cos_hi, t
-    print("inputs ok: %d radius masses (least slack %.3g in units of 1/Q), %d cosine bounds" % (n, float(slack), A))
+    print("inputs ok: %d length weights (least slack %.3g in units of 1/Q), %d cosine bounds" % (n, float(slack), A))
     return pi_hi
 
 
@@ -89,7 +89,7 @@ def exact_forb(a, c, z, Ct, Cu, D):
 
 
 def forbidden_at(z, n, A, D, Carr):
-    """Boolean array F[a, c, t, u] (ordinary a, c) for the swap test at middle radius z."""
+    """Boolean array F[a, c, t, u] (a, c < n) for the exchange inequality at middle length z."""
     if z == 0:
         # X = D a^2, Y = D c^2, L^2 = D (a + c)^2: then T = 2 D a c and T^2 = 4 X Y, so no cell is forbidden
         return np.zeros((n, n, A, A), dtype=bool), 0
