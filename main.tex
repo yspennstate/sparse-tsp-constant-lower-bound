@@ -35,10 +35,10 @@ Givat Ram, Jerusalem, Israel\\
 Let $T_m$ be the length of the shortest path from the origin through $m$ distinct points of a Poisson process of unit
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant
 $c(0+)>0$, the sparse travelling salesman constant. We prove $c(0+)>0.32417$ for $d=2$. The exponential tilt of Aldous and Krikun gives
-$c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball. For every $a>b_d$ the expected number
+$c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball, and $b_2=0.29352\dots$. For every $a>b_d$ the expected number
 of paths of length at most $am$ through $m$ points tends to infinity, so no first moment of the number of all such
 paths gives more. We count only the paths that no exchange of two consecutive points shortens, and bound their
-expected number through the powers of a non-negative matrix $\mathcal P$ on $602{,}176$ states, which has a positive integer vector $\omega$ with $\mathcal P\omega\le 0.81987\,\omega$.
+expected number through the powers of a transfer operator $\mathcal P$, a non-negative matrix on $602{,}176$ states, which has a positive integer vector $\omega$ with $\mathcal P\omega\le 0.81987\,\omega$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -87,13 +87,14 @@ $0$ exactly when $a<b_d$, where
 b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\qquad b_3=0.37677\dots.
 \]
 Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In the plane the same value follows from the proof of
-\cite[Theorem~18]{Carlsson}, and the proofs of \cite[Lemma~2.1]{GM} and \cite[Theorem~1]{ADHT} give smaller bounds
-(\Cref{rem:known}). No larger $a$ comes from $\E Z_m(a)$: by \cite[Corollary~8]{Carlsson} and Stirling's formula,
-$\E Z_m(a)\to\infty$ for every $a>b_d$ (\Cref{thm:first}). In \cite[Section~3.3]{AK} the integral above is printed
-as $v_d\,d!\,\lambda^{-(d-1)}$, which gives $1/(2\pi e)\approx 0.0585$ in the plane, and the note \cite{Anote}
-states in place of the bound \cite[(3.6)]{AK} the value $e(d-1)(v_d\,d!)^{-1/(d-1)}$, which is
-$e/(2\pi)\approx 0.4326$ in the plane. In the plane this exceeds $b_2$, so it does not follow from $\E Z_m(a)$, and
-for large $d$ it exceeds $\beta_d\ge c(0+)$ by a factor tending to $e^2$ (\Cref{rem:known}).
+\cite[Theorem~18]{Carlsson}, the proof of \cite[Lemma~2.1]{GM} gives $(2\pi e)^{-1/2}\approx 0.2420$, and
+\cite[Theorem~1]{ADHT} gives $1/17$ (\Cref{rem:known}). No larger $a$ comes from $\E Z_m(a)$: by \cite[Corollary~8]{Carlsson} and Stirling's formula,
+$\E Z_m(a)\to\infty$ for every $a>b_d$ (\Cref{thm:first}). Aldous and Krikun print the integral above \cite[Section~3.3]{AK}
+as $v_d\,d!\,\lambda^{-(d-1)}$, which gives $1/(2\pi e)\approx 0.0585$ in the plane. The note \cite{Anote} replaces
+\cite[(3.6)]{AK} by $c(0+)\ge e(d-1)(v_d\,d!)^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. This
+inequality fails for all large $d$, because its right side divided by $\beta_d\ge c(0+)$ tends to $e^2$
+(\Cref{rem:known}). In the plane its right side exceeds $b_2$, so it does not follow from $\E Z_m(a)$, and before
+\Cref{thm:main} the largest proved lower bound for $c(0+)$ in the plane was $b_2$.
 
 In the plane we count only the paths that no exchange of two consecutive points shortens. Kirousis, Kranakis,
 Krizanc and Stamatiou \cite{KKKS} lower the first moment bound for the satisfiability threshold of random $3$-SAT in
