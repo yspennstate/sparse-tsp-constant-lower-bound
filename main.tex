@@ -34,12 +34,12 @@ Givat Ram, Jerusalem, Israel\\
 \begin{abstract}
 Let $T_m$ be the length of the shortest path from the origin through $m$ distinct points of a Poisson process of unit
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant
-$c(0+)>0$. We prove $c(0+)>0.32417$ for $d=2$. The first moment argument of Aldous and Krikun gives
+$c(0+)>0$. We prove $c(0+)>0.32417$ for $d=2$. The exponential tilt of Aldous and Krikun, with its integral evaluated exactly, gives
 $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball. For every $a>b_d$ the expected number
 of paths of length at most $am$ through $m$ points tends to infinity, so no first moment of the number of all such
 paths gives more. We count only the paths that no exchange of two consecutive points shortens, and bound their
-expected number through a non-negative transfer operator $P$ with $P\omega\le 0.81987\,\omega$ for a positive integer
-vector $\omega$.
+expected number through the powers of a non-negative matrix $P$ on $602{,}176$ states (two consecutive length
+categories and one angle bin), which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -69,7 +69,7 @@ the constants for shortest cycles through a proportion $\delta$ of the points. I
 omits. The constant $c(1)$ is the Beardwood--Halton--Hammersley constant $\beta_d$ \cite{BHH}, so (b) gives
 $c(0+)\le\beta_d$. In the plane $0.6277\le\beta_2\le 0.90367$, by Gaudio and Jaillet \cite{GJ}, who correct and
 tighten an argument of Steinerberger \cite{St}, and by a computer-assisted argument of Gaudio and Guan \cite{GG}. These
-are bounds for the constant of the full sample. For $c(0+)$ in the plane, the first moment bound $b_2=0.29352\dots$
+bound $c(1)=\beta_2$. For $c(0+)$ in the plane, the first moment bound $b_2=0.29352\dots$
 below and (b) give $b_2\le c(0+)\le\beta_2\le 0.90367$, and a construction of Aldous gives $c(0+)\le 0.607$, rigorous
 up to the sampling error of a Monte Carlo estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value
 of $c(0+)$ in $d=2$ by Monte Carlo methods, and \cite[Section~2.1]{AK} remarks that reasonable bounds on it seem
@@ -98,9 +98,9 @@ $e/(2\pi)\approx 0.4326$ in the plane. Since $\E Z_m(a)\to\infty$ for $a>b_d$, t
 moment of $Z_m(a)$, and for large $d$ the expression exceeds $\beta_d\ge c(0+)$: by \cite{Rhee} its ratio to $\beta_d$
 tends to $e^2$ (\Cref{rem:known}).
 
-In the plane we count only the paths that no exchange of two consecutive points shortens, as Kirousis, Kranakis,
-Krizanc and Stamatiou \cite{KKKS} lower the first moment bound for the satisfiability threshold of random $3$-SAT by
-counting only the satisfying assignments that are locally maximal under single flips. Let $(0=x_0,x_1,\dots,x_m)$ be a
+In the plane we count only the paths that no exchange of two consecutive points shortens. Kirousis, Kranakis,
+Krizanc and Stamatiou \cite{KKKS} lower the first moment bound for the satisfiability threshold of random $3$-SAT in
+the same way, counting only the satisfying assignments that are locally maximal under single flips. Let $(0=x_0,x_1,\dots,x_m)$ be a
 path of length $T_m$ with steps $u_i=x_i-x_{i-1}$. Exchanging $x_i$ and $x_{i+1}$, the 2-opt move of Croes
 \cite{Croes} on two consecutive points, does not shorten the path, so the steps satisfy the exchange inequality
 \[
@@ -190,8 +190,12 @@ dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. Verges \cite{Verges} stu
 deviations for the same model, and Blanchard, Jacquillat and Jaillet \cite{BJJ} give the order of growth, up to
 constant factors, of the shortest path through a given number of the points of a uniform sample.
 
-For the expression of the note \cite{Anote}, $(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}(1+O(\log d/d))$, so
-$e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d(1+O(\log d/d))$. By the proof of \Cref{cor:asym} and by \cite{Rhee}, $b_d/\sqrt d$
+For the expression of the note \cite{Anote},
+\[
+(v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}\bigl(1+O(\log d/d)\bigr),\qquad
+e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d\bigl(1+O(\log d/d)\bigr).
+\]
+By the proof of \Cref{cor:asym} and by \cite{Rhee}, $b_d/\sqrt d$
 and $\beta_d/\sqrt d$ have the same limit $(2\pi e)^{-1/2}$, so the ratio of the expression to $\beta_d$ tends to
 $e^2$. The note refers to Carlsson, Behroozi, Devulapalli and Meng \cite{CBDM}, whose tours visit one point of each
 of several types; such a tour is at least as long as the shortest cycle through as many points, so a lower bound for
@@ -225,8 +229,8 @@ is uniform, and the two are independent. Since badness is invariant under scalin
 independent $\mu_\lambda$ vectors is bad does not depend on $\lambda$.
 
 \begin{proposition}\label{prop:block}
-Let $U_1,U_2,\dots$ be independent with law $\mu_1$. Then $q_m$, defined in \Cref{sec:intro}, is the probability that none of the triples
-$(U_i,U_{i+1},U_{i+2})$, $1\le i\le m-2$, is bad. Then for all $a,\lambda>0$,
+Let $U_1,U_2,\dots$ be independent with law $\mu_1$, so that $q_m$, defined in \Cref{sec:intro}, is the probability
+that none of the triples $(U_i,U_{i+1},U_{i+2})$, $1\le i\le m-2$, is bad. For all $a,\lambda>0$,
 \[
 \Prob(T_m\le am)\le\bigl(e^{\lambda a}\,2\pi\lambda^{-2}\bigr)^m q_m ,
 \]
@@ -318,18 +322,18 @@ $z\in\{k,k+1\}$. At such an endpoint, multiplying by $\sqrt D$ shows that $G(j,z
 inequality $\sqrt X+\sqrt Y<\Lambda$.
 \end{proof}
 
-\emph{The transfer operator.} Let the set of states be $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define the integer operator $M$ on functions on
+\emph{The transfer operator.} Let the set of states be $\mathcal S=\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ and define the integer operator $M$ on functions $f$ on
 $\mathcal S$ by
 \[
-(M\omega)(k,l,\tau)=w_l\sum_{j=0}^{n}\sum_{t=0}^{A-1}H(j,k,l,t,\tau)\,\omega(j,k,t).
+(Mf)(k,l,\tau)=w_l\sum_{j=0}^{n}\sum_{t=0}^{A-1}H(j,k,l,t,\tau)\,f(j,k,t).
 \]
-Put $V_2(j,k,t)=w_jw_k$, and let $P=M/(QA)$ be the transfer operator. For a function $f$ on $\mathcal S$ write
+Put $V_2(j,k,t)=w_jw_k$, and let $P=M/(QA)$ be the transfer operator. For such $f$ write
 $\sum_{\mathcal S}f$ for the sum of its values.
 
 \begin{proposition}\label{prop:transfer}
-Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\alpha>0$, $\omega>0$
-on $\mathcal S$ and $P\omega\le\alpha \omega$ coordinatewise, then $q_m\le\kappa Q^{-2}A^{-1}\alpha^{m-2}\sum_{\mathcal S}\omega$ for
-$m\ge2$, where $\kappa>0$ is any number with $V_2\le\kappa \omega$, and $c(0+)\ge b_2\,\alpha^{-1/2}$.
+Let $n,s,A,Q,D\ge 1$ be integers and let $w_j$, $C_t$, $H$, $M$, $P$ and $V_2$ be as above. Then $q_m\le Q^{-2}A^{-1}\sum_{\mathcal S}P^{m-2}V_2$ for $m\ge 2$. If $\alpha>0$, $f>0$
+on $\mathcal S$ and $Pf\le\alpha f$ coordinatewise, then $q_m\le\kappa Q^{-2}A^{-1}\alpha^{m-2}\sum_{\mathcal S}f$ for
+$m\ge2$, where $\kappa>0$ is any number with $V_2\le\kappa f$, and $c(0+)\ge b_2\,\alpha^{-1/2}$.
 \end{proposition}
 
 \begin{proof}
@@ -337,8 +341,8 @@ Let $E_m$ be the event that no cell $(K_i,K_{i+1},K_{i+2},t_i,t_{i+1})$, $1\le i
 \Cref{lem:cell}, no bad triple implies $E_m$, so $q_m\le\Prob(E_m)$. Since the $K_i$ and $t_i$ are independent with
 the stated laws, the sequence $(K_i,K_{i+1},t_i)$ is a Markov chain, and induction on $m$ shows that $Q^mA^{m-1}
 \Prob(E_m,K_{m-1}=j,K_m=k,t_{m-1}=t)=(M^{m-2}V_2)(j,k,t)$; the initial vector accounts for two length categories and
-one angle bin, and each step adds one of each. This is the first claim. If $P\omega\le\alpha \omega$ with $\omega>0$, such a $\kappa$
-exists, and since $P$ has non-negative entries, $P^{m-2}V_2\le \kappa\alpha^{m-2}\omega$, which gives the second claim;
+one angle bin, and each step adds one of each. This is the first claim. If $Pf\le\alpha f$ with $f>0$, such a $\kappa$
+exists, and since $P$ has non-negative entries, $P^{m-2}V_2\le \kappa\alpha^{m-2}f$, which gives the second claim;
 the third follows from \Cref{prop:block}.
 \end{proof}
 
@@ -459,19 +463,20 @@ $x_i$, $u_i$ & points of a path, steps $u_i=x_i-x_{i-1}$ & \Cref{sec:intro}\\
 $\Prob$, $\E$ & probability, expectation & \Cref{sec:intro}\\
 $\lambda$ & parameter of the exponential tilt & \Cref{sec:intro}\\
 $b_d$ & first moment bound $(d/e)(v_d\,d!)^{-1/d}$ & \Cref{sec:intro}\\
-$\gamma$ & length of a curve in the unit square & \Cref{sec:intro}\\
-$W(\ell)$, $\ell$ & most points of $\Pi$ on a path of length at most $\ell$; that length & \Cref{sec:intro}\\
+$\gamma$ & length of a curve in the unit square & \Cref{rem:known}\\
+$W(\ell)$, $\ell$ & most points of $\Pi$ on a path of length at most $\ell$; that length & \Cref{rem:known}\\
 $q_m$ & probability that $m$ steps satisfy all exchange inequalities & \Cref{sec:intro}, \Cref{prop:block}\\
 $P$ & transfer operator, $P=M/(QA)$ & \Cref{sec:intro}, \Cref{sec:transfer}\\
-$\alpha$ & rate with $q_m=O(\alpha^m)$ or $P\omega\le\alpha \omega$ & \Cref{sec:intro}\\
+$\alpha$ & rate with $q_m=O(\alpha^m)$ or $Pf\le\alpha f$ &\Cref{sec:intro}\\
 $\omega$, $\rho$ & positive vector with $P\omega\le\rho \omega$; $\rho=N/10^{12}$ & \Cref{sec:intro}\\
 $\mathbf{1}$ & indicator & \Cref{sec:first}\\
 $r_i$, $\sigma_i$ & length $|u_i|$, normalized surface measure & \Cref{sec:first}\\
+$|S^{d-1}|$ & area of the unit sphere, $d\,v_d$ & \Cref{sec:first}\\
 $B$ & length of a path through $m$ points & \Cref{sec:exchange}\\
 $\mu_\lambda$ & law with density $e^{-\lambda|u|}\lambda^2/(2\pi)$ on $\R^2$ & \Cref{sec:exchange}\\
 $U_i$ & independent vectors with law $\mu_1$ & \Cref{prop:block}\\
 $Z^*_m(a)$ & number of the $m$-tuples counted by $Z_m(a)$ with no bad triple & \Cref{prop:block}\\
-$\varepsilon$ & small positive number & \Cref{sec:intro}\\
+$\varepsilon$ & small positive number & \Cref{rem:known}\\
 $p$ & lower bound for the probability that a triple is bad & \Cref{sec:exchange}\\
 $\mathcal F$ & event on which a triple is bad & \Cref{prop:hand}\\
 $R_i$, $\varphi_i$ & step length, angle between consecutive steps & \Cref{sec:transfer}\\
@@ -489,10 +494,10 @@ $\Lambda$ & $\sqrt D\,(j+l)$ & \Cref{sec:transfer}\\
 $H$ & cell indicator, $0$ on forbidden cells & \Cref{sec:transfer}\\
 $\mathcal S$ & set of states $\{0,\dots,n\}^2\times\{0,\dots,A-1\}$ & \Cref{sec:transfer}\\
 $\sum_{\mathcal S}f$ & sum of the values of a function $f$ on $\mathcal S$ & \Cref{sec:transfer}\\
-$M$ & integer operator $(M\omega)(k,l,\tau)=w_l\sum_{j,t}H(j,k,l,t,\tau)\,\omega(j,k,t)$ & \Cref{sec:transfer}\\
+$M$ & integer operator $(Mf)(k,l,\tau)=w_l\sum_{j,t}H(j,k,l,t,\tau)\,f(j,k,t)$ & \Cref{sec:transfer}\\
 $V_2$ & initial vector, $V_2(j,k,t)=w_jw_k$ & \Cref{sec:transfer}\\
 $E_m$ & no forbidden cell among $m$ steps & \Cref{prop:transfer}\\
-$\kappa$ & number with $V_2\le\kappa \omega$ & \Cref{prop:transfer}\\
+$\kappa$ & number with $V_2\le\kappa f$ & \Cref{prop:transfer}\\
 $\psi$, $\psi^\pm$ & tail $(1+x)e^{-x}$ of the step length, rational bounds & \Cref{sec:computation}\\
 $t'$ & $\min(t,A-1-t)$ & \Cref{sec:computation}\\
 $\pi^-$ & rational lower bound for $\pi$ & \Cref{sec:computation}\\

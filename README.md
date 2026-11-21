@@ -17,7 +17,8 @@ plane, with a transfer operator and a positive vector checked in exact integer a
 - `LICENSE`: CC BY 4.0 for the paper, MIT for the programs.
 
 The vectors `final.v` (7.1 MB) and `final.Mv` (13.9 MB), one integer per line in the state order
-(a*(n+1)+b)*A+t, are in `code/`.
+(a*(n+1)+b)*A+t, are in `code/`. `final.v` is the vector omega of Proposition 5.1 of the paper and `final.Mv`
+is M omega.
 
 ## Reproducing the vector v and the check
 
