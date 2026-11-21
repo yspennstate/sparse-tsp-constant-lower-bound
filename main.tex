@@ -34,12 +34,11 @@ Givat Ram, Jerusalem, Israel\\
 \begin{abstract}
 Let $T_m$ be the length of the shortest path from the origin through $m$ distinct points of a Poisson process of unit
 intensity in $\R^d$, $d\ge 2$. Aldous and Krikun proved that $T_m/m$ converges in probability to a constant
-$c(0+)>0$. We prove $c(0+)>0.32417$ for $d=2$. The exponential tilt of Aldous and Krikun, with its integral evaluated exactly, gives
+$c(0+)>0$, the sparse travelling salesman constant. We prove $c(0+)>0.32417$ for $d=2$. The exponential tilt of Aldous and Krikun gives
 $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball. For every $a>b_d$ the expected number
 of paths of length at most $am$ through $m$ points tends to infinity, so no first moment of the number of all such
 paths gives more. We count only the paths that no exchange of two consecutive points shortens, and bound their
-expected number through the powers of a non-negative matrix $P$ on $602{,}176$ states (two consecutive length
-categories and one angle bin), which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
+expected number through the powers of a non-negative matrix $P$ on $602{,}176$ states, which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -68,9 +67,9 @@ We call $c(0+)$ the sparse travelling salesman constant: by (a) and (b) it is th
 the constants for shortest cycles through a proportion $\delta$ of the points. It depends on $d$, which the notation
 omits. The constant $c(1)$ is the Beardwood--Halton--Hammersley constant $\beta_d$ \cite{BHH}, so (b) gives
 $c(0+)\le\beta_d$. In the plane $0.6277\le\beta_2\le 0.90367$, by Gaudio and Jaillet \cite{GJ}, who improve an
-argument of Steinerberger \cite{St}, and by a computer-assisted argument of Gaudio and Guan \cite{GG}. These
-bound $c(1)=\beta_2$. For $c(0+)$ in the plane, the first moment bound $b_2=0.29352\dots$
-below and (b) give $b_2\le c(0+)\le\beta_2\le 0.90367$, and a construction of Aldous gives $c(0+)\le 0.607$, rigorous
+argument of Steinerberger \cite{St}, and by a computer-assisted argument of Gaudio and Guan \cite{GG}. For
+$c(0+)$ in the plane, the first moment bound $0.29352\dots$ derived below and (b) give
+$0.29352\le c(0+)\le\beta_2\le 0.90367$, and a construction of Aldous gives $c(0+)\le 0.607$, rigorous
 up to the sampling error of a Monte Carlo estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value
 of $c(0+)$ in $d=2$ by Monte Carlo methods, and \cite[Section~2.1]{AK} remarks that reasonable bounds on it seem
 difficult to obtain.
@@ -293,7 +292,7 @@ For $|h|\le 1$ the function $G$ is non-increasing in $r\ge 0$ (it is $|(r,0)+y|-
 $\bigl||(r',0)+y|-|(r,0)+y|\bigr|\le|r'-r|$), non-decreasing in $h$, and convex in $z$.
 
 \emph{Length categories.} Fix integers $n,s,A,Q,D\ge 1$. Length bin $j\in\{0,\dots,n-1\}$ is $I_j=[j/s,(j+1)/s)$.
-Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$, where $R$ has the Gamma$(2,1)$ law of the $R_i$, and put $w_n=Q-\sum_{j<n}w_j>0$. Angle bin
+Choose integers $w_j\ge 0$ with $w_j\le Q\,\Prob(R\in I_j)$, where $R$ has the Gamma$(2,1)$ law of the $R_i$, and put $w_n=Q-\sum_{j<n}w_j$, which is non-negative because $\sum_{j<n}w_j\le Q\,\Prob(R<n/s)$. Angle bin
 $t\in\{0,\dots,A-1\}$ is $J_t=[2\pi t/A,2\pi(t+1)/A)$, and $C_t$ is an integer with $D\sup_{\varphi\in J_t}
 \cos\varphi\le C_t\le D$. On an enlarged probability space we attach to each $R_i$ a length category $K_i\in\{0,\dots,n\}$, independent
 across $i$, with $\Prob(K_i=j)=w_j/Q$ and $R_i\in I_j$ whenever $K_i=j<n$. This is possible because
