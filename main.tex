@@ -38,7 +38,7 @@ $c(0+)>0$, the sparse travelling salesman constant. We prove $c(0+)>0.32417$ for
 $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball. For every $a>b_d$ the expected number
 of paths of length at most $am$ through $m$ points tends to infinity, so no first moment of the number of all such
 paths gives more. We count only the paths that no exchange of two consecutive points shortens, and bound their
-expected number through the powers of a non-negative matrix $P$ on $602{,}176$ states, which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
+expected number through the powers of a non-negative matrix $P$ of size $602{,}176$, which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -90,12 +90,9 @@ b_d=\frac de\,(v_d\,d!)^{-1/d},\qquad b_2=\frac{\sqrt{2/\pi}}{e}=0.29352\dots,\q
 Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In the plane the same value follows from the proof of
 \cite[Theorem~18]{Carlsson}, and the proofs of \cite[Lemma~2.1]{GM} and \cite[Theorem~1]{ADHT} give smaller bounds
 (\Cref{rem:known}). No larger $a$ comes from $\E Z_m(a)$: by \cite[Corollary~8]{Carlsson} and Stirling's formula,
-$\E Z_m(a)\to\infty$ for every $a>b_d$ (\Cref{thm:first}). In \cite[Section~3.3]{AK} the integral of the tilt is
-printed as $v_d\,d!\,\lambda^{-(d-1)}$, which gives $(2\pi e)^{-1}\approx 0.0585$ in the plane. The note \cite{Anote}
-replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK} and obtains $e(d-1)(v_d\,d!)^{-1/(d-1)}$, which is
-$e/(2\pi)\approx 0.4326$ in the plane. Since $\E Z_m(a)\to\infty$ for $a>b_d$, that value does not follow from a first
-moment of $Z_m(a)$, and for large $d$ the expression exceeds $\beta_d\ge c(0+)$: by \cite{Rhee} its ratio to $\beta_d$
-tends to $e^2$ (\Cref{rem:known}).
+$\E Z_m(a)\to\infty$ for every $a>b_d$ (\Cref{thm:first}). In particular the value $e/(2\pi)\approx 0.4326$ of the note
+\cite{Anote}, which corrects the integral printed in \cite[Section~3.3]{AK}, does not follow from a first moment of
+$Z_m(a)$ (\Cref{rem:known}).
 
 In the plane we count only the paths that no exchange of two consecutive points shortens. Kirousis, Kranakis,
 Krizanc and Stamatiou \cite{KKKS} lower the first moment bound for the satisfiability threshold of random $3$-SAT in
@@ -189,7 +186,11 @@ dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. Verges \cite{Verges} stu
 deviations for the same model, and Blanchard, Jacquillat and Jaillet \cite{BJJ} give the order of growth, up to
 constant factors, of the shortest path through a given number of the points of a uniform sample.
 
-For the expression of the note \cite{Anote},
+In \cite[Section~3.3]{AK} the integral of the tilt is printed as $v_d\,d!\,\lambda^{-(d-1)}$, which gives
+$(2\pi e)^{-1}\approx 0.0585$ in the plane. The note \cite{Anote} replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK} and
+obtains $e(d-1)(v_d\,d!)^{-1/(d-1)}$, which is $e/(2\pi)\approx 0.4326$ in the plane. Since $\E Z_m(a)\to\infty$ for
+$a>b_d$ (\Cref{thm:first}), that value does not follow from a first moment of $Z_m(a)$, and for large $d$ the
+expression exceeds $\beta_d\ge c(0+)$. Indeed
 \[
 (v_d\,d!)^{-1/(d-1)}=(v_d\,d!)^{-1/d}\bigl(1+O(\log d/d)\bigr),\qquad
 e(d-1)(v_d\,d!)^{-1/(d-1)}=e^2b_d\bigl(1+O(\log d/d)\bigr).
