@@ -38,7 +38,7 @@ $c(0+)>0$, the sparse travelling salesman constant. We prove $c(0+)>0.32417$ for
 $c(0+)\ge b_d=(d/e)(v_d\,d!)^{-1/d}$, where $v_d$ is the volume of the unit ball. For every $a>b_d$ the expected number
 of paths of length at most $am$ through $m$ points tends to infinity, so no first moment of the number of all such
 paths gives more. We count only the paths that no exchange of two consecutive points shortens, and bound their
-expected number through the powers of a non-negative matrix $P$ of size $602{,}176$, which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
+expected number through the powers of a non-negative matrix $P$ on $602{,}176$ states, which has a positive integer vector $\omega$ with $P\omega\le 0.81987\,\omega$.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Euclidean travelling salesman problem, Poisson process, first moment method, transfer
@@ -66,8 +66,8 @@ in a cube of volume $g$. Parts (a),
 We call $c(0+)$ the sparse travelling salesman constant: by (a) and (b) it is the limit, as $\delta\downarrow 0$, of
 the constants for shortest cycles through a proportion $\delta$ of the points. It depends on $d$, which the notation
 omits. The constant $c(1)$ is the Beardwood--Halton--Hammersley constant $\beta_d$ \cite{BHH}, so (b) gives
-$c(0+)\le\beta_d$. In the plane $0.6277\le\beta_2\le 0.90367$, by Gaudio and Jaillet \cite{GJ}, who improve an
-argument of Steinerberger \cite{St}, and by a computer-assisted argument of Gaudio and Guan \cite{GG}. For
+$c(0+)\le\beta_d$. In the plane $\beta_2\ge 0.6277$ by Gaudio and Jaillet \cite{GJ}, who improve an
+argument of Steinerberger \cite{St}, and $\beta_2\le 0.90367$ by a computer-assisted argument of Gaudio and Guan \cite{GG}. For
 $c(0+)$ in the plane, the first moment bound $0.29352\dots$ derived below and (b) give
 $0.29352\le c(0+)\le\beta_2\le 0.90367$, and a construction of Aldous gives $c(0+)\le 0.607$, rigorous
 up to the sampling error of a Monte Carlo estimate \cite{Aapp}. Open Problem~3 of \cite{AK} proposes to study the value
@@ -91,7 +91,7 @@ Hence \cite[Theorem~1(e)]{AK} gives $c(0+)\ge b_d$. In the plane the same value 
 \cite[Theorem~18]{Carlsson}, and the proofs of \cite[Lemma~2.1]{GM} and \cite[Theorem~1]{ADHT} give smaller bounds
 (\Cref{rem:known}). No larger $a$ comes from $\E Z_m(a)$: by \cite[Corollary~8]{Carlsson} and Stirling's formula,
 $\E Z_m(a)\to\infty$ for every $a>b_d$ (\Cref{thm:first}). In particular the value $e/(2\pi)\approx 0.4326$ of the note
-\cite{Anote}, which corrects the integral printed in \cite[Section~3.3]{AK}, does not follow from a first moment of
+\cite{Anote}, which replaces $e^{-1}$ by $e$ in \cite[(3.6)]{AK}, does not follow from a first moment of
 $Z_m(a)$ (\Cref{rem:known}).
 
 In the plane we count only the paths that no exchange of two consecutive points shortens. Kirousis, Kranakis,
@@ -110,7 +110,8 @@ satisfy the exchange inequality for $1\le i\le m-2$. Then
 so a bound $q_m=O(\alpha^m)$ with $0<\alpha<1$ gives $c(0+)\ge b_2\,\alpha^{-1/2}$ (\Cref{prop:block}). The
 exchange inequalities for disjoint triples of steps are independent, and each fails with probability at least $1/27$.
 Hence $q_m\le(26/27)^{\lfloor m/3\rfloor}$ and $c(0+)\ge b_2(27/26)^{1/6}>0.2953$ (\Cref{prop:hand}). To use all
-triples, we sort the step lengths into $97$ length categories ($96$ bins of width $1/12$ and one further category)
+triples, we attach to each step length one of $97$ length categories ($96$ bins of width $1/12$ and one further category,
+assigned at random as in \Cref{sec:transfer})
 and the angles between consecutive steps into $64$ angle bins. Then $q_m$ is at most a constant times the sum of the
 entries of $P^{m-2}$ applied to a fixed non-negative vector, much as Alm \cite{Alm} bounds the connective constant of
 self-avoiding walks by the largest eigenvalue of a matrix. Here $P$ is the transfer operator, a non-negative matrix
@@ -131,11 +132,11 @@ For $d=2$, $c(0+)\ge b_2\,\rho^{-1/2}=0.324170\dots$ with $\rho=0.819869595611$,
 \end{theorem}
 
 \begin{corollary}\label{cor:asym}
-$c(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$.
+Let $c_d(0+)$ be the constant $c(0+)$ in $\R^d$. Then $c_d(0+)/\sqrt d\to(2\pi e)^{-1/2}$ as $d\to\infty$.
 \end{corollary}
-It follows from $b_d\le c(0+)\le\beta_d$ and the asymptotics of $\beta_d$ due to Rhee \cite{Rhee}.
 
-\Cref{sec:first} proves \Cref{thm:first} and \Cref{cor:asym}. \Cref{sec:exchange} proves the exchange inequality and
+\Cref{sec:first} proves \Cref{thm:first}, and \Cref{cor:asym} from $b_d\le c(0+)\le\beta_d$ and the asymptotics of
+$\beta_d$ due to Rhee \cite{Rhee}. \Cref{sec:exchange} proves the exchange inequality and
 the bound of $\Prob(T_m\le am)$ by $q_m$, and obtains $c(0+)>0.2953$ from disjoint triples. \Cref{sec:transfer} bounds
 $q_m$ by the powers of $P$, using all triples. \Cref{sec:computation} fixes the parameters and gives the positive vector $\omega$ and
 the integer inequalities that prove \Cref{thm:main}.
@@ -180,7 +181,8 @@ $\ell\to\infty$. Arias-Castro, Donoho, Huo and Tovey \cite[Theorem~1]{ADHT} prov
 $g$ independent uniform points in the unit square the largest number on one curve of length at most $\gamma$ is at
 most $17\gamma\sqrt g$ with probability tending to one. A path of length $\ell$ from the origin stays in a square of
 side $2\ell$, which holds at most $4(1+\varepsilon)\ell^2$ points of $\Pi$ with probability tending to one, for each
-$\varepsilon>0$; so $W(\ell)\le 17\sqrt{1+\varepsilon}\,\ell$ with probability tending to one, and $c(0+)\ge1/17$. The
+$\varepsilon>0$. Given their number, these points are independent and uniform in the square, and adding further
+independent uniform points can only increase the largest number on one curve; so $W(\ell)\le 17\sqrt{1+\varepsilon}\,\ell$ with probability tending to one, and $c(0+)\ge1/17$. The
 proof of \cite[Lemma~2.1]{GM}, which uses the tilt with $\lambda=1/a$, gives $c(0+)\ge(e\,v_d\,d!)^{-1/d}$ in every
 dimension, $(2\pi e)^{-1/2}\approx0.2420$ in the plane. Verges \cite{Verges} studies concentration and large
 deviations for the same model, and Blanchard, Jacquillat and Jaillet \cite{BJJ} give the order of growth, up to
