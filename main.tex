@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{enumitem}
 \usepackage{longtable}
+\usepackage{array}
 \usepackage{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
 
@@ -419,14 +420,9 @@ The author holds equity in Heights Labs and Convex Nexus Capital and has a manag
 
 \section*{Declaration of generative AI and AI-assisted technologies}
 
+This paper is part of a broader research project on proving open problems with AI systems.
 The arguments and programs were developed by AI agents, Claude (Anthropic) and Codex (OpenAI), connected to Math Brain
-and working under the author's direction; the agents also drafted the text. The problem, the limit theorem and the
-exponential tilt are due to Aldous and Krikun \cite{AK}, and the tilt is also used by Gou\'er\'e and Marchand
-\cite{GM}. The volume formula of \Cref{thm:first} is \cite[Corollary~8]{Carlsson}, and the plane value $b_2$ also
-follows from the proof of a theorem of Carlsson \cite{Carlsson}. The exchange is
-the 2-opt move of Croes \cite{Croes}, and the asymptotic upper bound is due to Rhee \cite{Rhee}. Counting only locally
-optimal configurations follows Kirousis, Kranakis, Krizanc and Stamatiou \cite{KKKS}, and bounding $q_m$ through the powers of the transfer operator
-follows Alm \cite{Alm}. The author directed the work and is responsible for the content
+and working under the author's direction; the agents also drafted the text. The author directed the work and is responsible for the content
 of the paper and for decisions concerning its dissemination.
 
 \section*{Data and code availability}
@@ -443,7 +439,7 @@ commands that recompute $\omega$, $N$ and the checks of \Cref{prop:cert}.
 \section{Notation}\label{app:notation}
 
 {\footnotesize
-\begin{longtable}{lll}
+\begin{longtable}{l>{\raggedright\arraybackslash}p{0.5\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}}
 symbol & meaning & first use\\\hline
 \endhead
 $d$ & dimension & \Cref{sec:intro}\\
@@ -451,16 +447,15 @@ $\Pi$, $\xi_i$ & Poisson process of unit intensity in $\R^d$, its points & \Cref
 $v_d$ & volume of the unit ball in $\R^d$ & \Cref{sec:intro}\\
 $\Gamma$ & Euler's gamma function & \Cref{sec:intro}\\
 $m$ & number of points of a path & \Cref{sec:intro}\\
-$|\cdot|$ & Euclidean norm & \Cref{sec:intro}\\
+$|x|$ & Euclidean norm & \Cref{sec:intro}\\
 $T_m$ & shortest path length from $0$ through $m$ points of $\Pi$ & \Cref{sec:intro}\\
 $L_g(\delta)$ & shortest cycle through $\lceil\delta g\rceil$ of $g$ points & \Cref{sec:intro}\\
 $g$, $\delta$ & number of uniform points, proportion of them visited & \Cref{sec:intro}\\
 $c(\delta)$ & limit of $L_g(\delta)/(\delta g)$ & \Cref{sec:intro}\\
-$c(0+)$ & the sparse travelling salesman constant $\lim_{\delta\downarrow0}c(\delta)$ & \Cref{sec:intro}\\
-$c_d(0+)$ & the constant $c(0+)$ in $\R^d$ & \Cref{cor:asym}\\
+$c(0+)$, $c_d(0+)$ & the sparse travelling salesman constant $\lim_{\delta\downarrow0}c(\delta)$; the same constant in $\R^d$ & \Cref{sec:intro}, \Cref{cor:asym}\\
 $\beta_d$ & the Beardwood--Halton--Hammersley constant, $c(1)$ & \Cref{sec:intro}\\
 $a$ & length per point & \Cref{sec:intro}\\
-$Z_m(a)$ & number of paths of length at most $am$ & \Cref{sec:intro}\\
+$Z_m(a)$, $Z^*_m(a)$ & number of paths of length at most $am$; those with no bad triple & \Cref{sec:intro}, \Cref{prop:block}\\
 $x_i$, $u_i$ & points of a path, steps $u_i=x_i-x_{i-1}$ & \Cref{sec:intro}\\
 $\Prob$, $\E$ & probability, expectation & \Cref{sec:intro}\\
 $\lambda$ & parameter of the exponential tilt & \Cref{sec:intro}\\
@@ -477,7 +472,6 @@ $|S^{d-1}|$ & area of the unit sphere, $d\,v_d$ & \Cref{sec:first}\\
 $B$ & length of a path through $m$ points & \Cref{sec:exchange}\\
 $\mu_\lambda$ & law with density $e^{-\lambda|u|}\lambda^2/(2\pi)$ on $\R^2$ & \Cref{sec:exchange}\\
 $U_i$ & independent vectors with law $\mu_1$ & \Cref{prop:block}\\
-$Z^*_m(a)$ & number of the $m$-tuples counted by $Z_m(a)$ with no bad triple & \Cref{prop:block}\\
 $\varepsilon$ & small positive number & \Cref{rem:known}\\
 $p$ & lower bound for the probability that a triple is bad & \Cref{sec:exchange}\\
 $\mathcal F$ & event on which a triple is bad & \Cref{prop:hand}\\
@@ -487,10 +481,10 @@ $\theta_i$ & direction of $U_i$ & \Cref{sec:transfer}\\
 $G(r,z,h)$ & $\sqrt{r^2+z^2+2rzh}-r$ & \eqref{eq:bad}\\
 $h$ & third argument of $G$, a cosine & \eqref{eq:bad}\\
 $n,s,A,Q,D$ & integer parameters of the bins and weights & \Cref{sec:transfer}\\
-$I_j$, $J_t$ & length bin, angle bin & \Cref{sec:transfer}\\
+$I_j$, $J_t$, $t'$ & length bin, angle bin; $\min(t,A-1-t)$ & \Cref{sec:transfer}, \Cref{sec:computation}\\
 $w_j$, $C_t$ & integer length weights, cosine bounds & \Cref{sec:transfer}\\
 $K_i$, $t_i$ & length category, index of the angle bin of $\varphi_i$ & \Cref{sec:transfer}\\
-$(j,k,l,t,\tau)$ & cell: three length categories and two angle bins & \Cref{sec:transfer}\\
+$(j,k,l,t,\tau)$ & index of a point of $\Pi$; cell: three length categories and two angle bins & \Cref{sec:intro}, \Cref{sec:transfer}\\
 $z$ & middle length of a cell, scaled by $s$ & \Cref{sec:transfer}\\
 $X$, $Y$ & $D(j^2+z^2)+2jzC_t$ and $D(l^2+z^2)+2lzC_\tau$ & \Cref{sec:transfer}\\
 $\Lambda$ & $\sqrt D\,(j+l)$ & \Cref{sec:transfer}\\
@@ -502,8 +496,7 @@ $V_2$ & initial vector, $V_2(j,k,t)=w_jw_k$ & \Cref{sec:transfer}\\
 $E_m$ & no forbidden cell among $m$ steps & \Cref{prop:transfer}\\
 $\kappa$ & number with $V_2\le\kappa f$ & \Cref{prop:transfer}\\
 $\psi$, $\psi^\pm$ & tail $(1+x)e^{-x}$ of the step length, rational bounds & \Cref{sec:computation}\\
-$t'$ & $\min(t,A-1-t)$ & \Cref{sec:computation}\\
-$\pi^-$ & rational lower bound for $\pi$ & \Cref{sec:computation}\\
+$\pi$, $\pi^-$ & the circle constant; a rational lower bound for it & \Cref{sec:intro}, \Cref{sec:computation}\\
 $\eta$ & a state in $\mathcal S$ & \Cref{sec:computation}\\
 $N$ & least integer with $10^{12}M\omega\le NQA\omega$ on $\mathcal S$ & \Cref{sec:computation}\\
 $\Delta$ & $\Lambda^2-X-Y$ & \Cref{sec:computation}
